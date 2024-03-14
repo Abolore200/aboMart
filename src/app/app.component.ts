@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // this.display(this.hideMenu)
-    console.log(this.appService.flashSaleCart)
   }
 
   hideMenu: boolean
