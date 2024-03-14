@@ -1,0 +1,56 @@
+<div class="header-container">
+    <div class="header" hidden>
+      <div class="headnote">
+        <p class="headnote-flex"> 
+          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! &nbsp; 
+          <a href="#">Shop Now</a>
+        </p>
+        <div class="language-container">
+          <select name="language" id="language">
+            <option *ngFor="let language of languages" [value]="language">{{language}}</option>
+          </select>
+          <!-- <button (click)="removeHeader()">X</button> -->
+        </div>
+      </div>
+    </div>
+    <div class="menu-header">
+      <div class="menu-card">
+        <div class="menu-logo">
+          <button (click)="displayMenu()"><i class="fa-solid fa-bars"></i></button>
+          <a [routerLink]="''">aboShopify</a>
+        </div>
+        <div class="menu-headers">
+          <div class="menu-category" #removeNavBar [ngClass]="hideMenu ? 'absolute' : ''">
+            <ul>
+              <li><a (click)="hideNavBar()" [routerLink]="'home'" [routerLinkActive]="'activeLink'">Home</a></li>
+              <li><a>Contact</a></li>
+              <li><a>About</a></li>
+              <li><a (click)="hideNavBar()" [routerLink]="'signup'" [routerLinkActive]="'activeLink'">Sign Up</a></li>
+            </ul>
+            <div class="menu-search">
+              <input type="text" id="search" placeholder="What are you looking for?">
+              <button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+          <div class="menu-icon-header">
+            <ul>
+              <li>
+                <button>
+                  <span *ngIf="number > 0">{{number}}</span>
+                  <i class="fa-regular fa-heart" [ngClass]="number > 0 ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <span  *ngIf="number > 0">{{number}}</span>
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

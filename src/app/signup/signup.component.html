@@ -1,0 +1,81 @@
+<div class="signup-container">
+    <div class="signup-image">
+        <div class="image-card">
+            <img [src]="signupimg" alt="signup-image">
+        </div>
+    </div>
+    <div class="signup-header">
+        <div class="signup-card">
+            <div class="signup-head">
+                <p>Create an account</p>
+                <span>Enter your details below</span>
+            </div>
+            <div class="signup-form">
+                <div class="form">
+                    <div class="form-input">
+                        <label for="name">
+                            <input
+                            autocomplete="off" 
+                            type="text" 
+                            placeholder="Name" 
+                            id="name" 
+                            #blurName
+                            (blur)="formBlurName()"
+                            [(ngModel)]="nameInput" 
+                            [ngStyle]="{borderBottomColor: nameInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <label for="email">
+                            <input
+                            autocomplete="off" 
+                            type="text" 
+                            placeholder="Email or Phone Number" 
+                            id="email"
+                            #blurEmail
+                            (blur)="formBlurEmail()"
+                            [(ngModel)]="emailInput" 
+                            [ngStyle]="{borderBottomColor: emailInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <label for="password">
+                            <span>
+                                <i 
+                                (click)="showPass()" 
+                                [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                            </span>
+                            <input 
+                            type="password" 
+                            #password 
+                            placeholder="Password" 
+                            id="password"
+                            #blurPassword
+                            (blur)="formBlurPassword()"
+                            [(ngModel)]="passwordInput" 
+                            [ngStyle]="{borderBottomColor: passwordInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                        </label>
+                    </div>
+                    <div class="form-input">
+                        <div class="submit-btn">
+                            <button 
+                            type="submit" 
+                            [ngStyle]="{backgroundColor: passwordInput == '' ||  emailInput == '' || nameInput == '' ? '#ed8e86' : '#EA4335'}"
+                            [disabled]="passwordInput == '' || emailInput == '' || nameInput == ''">Create Account</button>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="submit-btn">
+                            <button type="button">
+                                <i class="fa-brands fa-google"></i> &nbsp; Sign up with Google
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-input login">
+                        <p>Already have an account? &nbsp; <span class="login-link"><a>Login</a></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
