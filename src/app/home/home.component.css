@@ -1,0 +1,34 @@
+.hero-section-container{width:90%;margin:0 auto 50px;display:flex;gap:0 50px;}
+.menu-btn{display:none;}
+.side-menu-container{border-right:1px solid #b3b3b3;display:grid;grid-template-columns:max-content;}
+.side-menu{padding:50px 25px 0 0;}
+.side-menu ul{display:flex;flex-direction:column;gap:20px 0;}
+.side-menu ul li{list-style:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.side-menu ul li i{margin-left:50px;transition:all .3s ease-in-out;color:#000;}
+.side-menu ul li:hover i{transform:translateX(5px);}
+.hero-section-slideshow{margin:50px 0 0;width:100%;background-color:#000;}
+.hero-section-slideshow *{color:#fff;}
+.slide-section-container{height:100%;display:flex;}
+.slide-flex{width:100%;}
+.apple-hero p{display:flex;align-items:center;gap:0 50px;}
+.apple-hero p i{font-size:3rem;}
+.apple-hero p span{font-weight:400;}
+.slide-side-container{display:flex;flex-direction:column;justify-content:center;gap:20px 0;padding:50px;}
+.hero-section-note h1{font-size:3rem;font-weight:500;}
+.shop-now a{display:flex;align-items:center;gap:0 20px;text-decoration:none;}
+.shop-now a span i{transition:all .3s ease-in-out;}
+.shop-now a:hover span i{transform:translateX(5px);}
+.auto-slideshow{margin:30px;position:relative;}
+.auto-slideshow > *{animation: 12s slideshow infinite linear;position:absolute;left:0;opacity:0;}
+.image-slideshow{width:100%;height:100%;}
+.image-slideshow img{width:100%;height:100%;object-fit:contain;aspect-ratio:1;}
+@keyframes slideshow{
+    0%{opacity:0.0}
+    4%{opacity:1.0}
+    33.33%{opacity:1.0}
+    37.33%{opacity:0.0}
+    100%{opacity:0.0}
+}
+.image-slideshow:nth-child(1){animation-delay:0s;}
+.image-slideshow:nth-child(2){animation-delay:4s;}
+.image-slideshow:nth-child(3){animation-delay:8s;}
