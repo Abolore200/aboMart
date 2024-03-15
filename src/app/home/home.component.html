@@ -82,7 +82,10 @@
                     <div class="product-image">
                         <div class="product-discount"><p>-{{product.discount}}%</p></div>
                         <div class="product-image-card">
-                            <img [src]="product.image" [alt]="product.name">
+                            <div class="image-product-card">
+                                <img [src]="product.image" [alt]="product.name">
+                            </div>
+                            <button class="add-to-cart-btn">Add To Cart</button>
                         </div>
                         <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
                     </div>
