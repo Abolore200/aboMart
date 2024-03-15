@@ -61,7 +61,7 @@
     .side-menu ul{flex-direction:row;flex-wrap:wrap;gap:20px 25px;}
     .side-menu ul li{justify-content:initial;}
     .side-menu ul li i{margin-left:10px;}
-    .slide-section-container{flex-direction:column;}
+    .slide-section-container{flex-direction:column-reverse;}
     .auto-slideshow{min-height:500px;height:auto;margin:0;padding:20px;}
     .auto-slideshow .image-slideshow{display:flex;align-items:center;justify-content:center;}
     .slide-side-container{padding:50px 50px 30px;}
