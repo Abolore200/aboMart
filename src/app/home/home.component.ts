@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Subscription, interval, map, takeWhile } from 'rxjs';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +12,7 @@ export class HomeComponent implements OnInit {
   hours:number
   minutes:number
   seconds:number
+
   ngOnInit(): void {
     const day = new Date().getDate()
     const hour = new Date().getHours()
@@ -23,5 +23,14 @@ export class HomeComponent implements OnInit {
     this.hours = hour
     this.minutes = minute
     this.seconds = second
+  }
+
+  hideMenu:boolean = false
+  displaySideMenu(){
+    if(this.hideMenu === false){
+      this.hideMenu = true
+    } else {
+      this.hideMenu = !this.hideMenu
+    }
   }
 }

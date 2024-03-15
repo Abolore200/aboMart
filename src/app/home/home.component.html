@@ -2,9 +2,9 @@
     <div class="hero-section-container">
         <div class="side-menu-container">
             <div class="menu-btn">
-                <button><i class="fa-solid fa-bars"></i></button>
+                <button (click)="displaySideMenu()"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <div class="side-menu">
+            <div class="side-menu" [ngClass]="hideMenu ? 'display' : ''">
                 <ul>
                     <li>Women's Fashion <i class="fa-solid fa-chevron-right"></i></li>
                     <li>Men's Fashion <i class="fa-solid fa-chevron-right"></i></li>
