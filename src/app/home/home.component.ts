@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppService } from '../AppService/app.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(private appService: AppService){}
+
   days:number
   hours:number
   minutes:number
   seconds:number
+
+  products:{name:string,price:number,rating:number,image:string,review:number,discount:number,old:number}[] = []
 
   ngOnInit(): void {
     const day = new Date().getDate()
@@ -23,6 +28,8 @@ export class HomeComponent implements OnInit {
     this.hours = hour
     this.minutes = minute
     this.seconds = second
+
+    this.products = this.appService.flashSaleCart
   }
 
   hideMenu:boolean = false
