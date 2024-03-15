@@ -1,3 +1,4 @@
+.container{margin-bottom:100px;}
 .hero-section-container{width:90%;margin:0 auto 50px;display:flex;gap:0 50px;}
 .menu-btn{display:none;}
 .side-menu-container{border-right:1px solid #b3b3b3;display:grid;grid-template-columns:max-content;}
@@ -10,7 +11,7 @@
 .hero-section-slideshow *{color:#fff;}
 .slide-section-container{height:100%;display:flex;}
 .slide-flex{width:100%;}
-.apple-hero p{display:flex;align-items:center;gap:0 50px;}
+.apple-hero p{display:flex;align-items:center;gap:0 30px;}
 .apple-hero p i{font-size:3rem;}
 .apple-hero p span{font-weight:400;}
 .slide-side-container{display:flex;flex-direction:column;justify-content:center;gap:20px 0;padding:50px;}
@@ -32,3 +33,19 @@
 .image-slideshow:nth-child(1){animation-delay:0s;}
 .image-slideshow:nth-child(2){animation-delay:4s;}
 .image-slideshow:nth-child(3){animation-delay:8s;}
+
+.flashsale-container{width:90%;margin:50px auto 0;}
+.today-container *{color:#db4444;}
+.today-container{display:flex;align-items:center;gap:0 20px;}
+.today-box{width:20px;height:40px;border-radius:4px;background-color:#db4444;}
+.today-container span{font-weight:600;}
+.flashsale-header *{color:#000;}
+.flashsale-header{margin-top:20px;gap:0 20px;align-items:end;}
+.flashsale-header span{font-weight:600;font-size:2rem;font-family:'Inter';}
+.flashsale-header{display:flex;}
+.time-countdown{display:flex;gap:0 10px;align-items:end;}
+.time-countdown div p{list-style:none;}
+.time-countdown div p:first-child{font-size:.7rem;}
+.time-countdown div p:last-child{font-weight:600;}
+.time-countdown div{display:flex;flex-direction:column;}
+.time-countdown span{color:#db4444;font-size:1.7rem;}
