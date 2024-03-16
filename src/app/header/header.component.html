@@ -37,14 +37,14 @@
           <div class="menu-icon-header">
             <ul>
               <li>
-                <button>
+                <button [routerLink]="'wishlist'">
                   <span *ngIf="number > 0">{{number}}</span>
                   <i class="fa-regular fa-heart" [ngClass]="number > 0 ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
                 </button>
               </li>
               <li>
                 <button>
-                  <span  *ngIf="number > 0">{{number}}</span>
+                  <!-- <span  *ngIf="number > 0">{{number}}</span> -->
                   <i class="fa-solid fa-cart-shopping"></i>
                 </button>
               </li>

@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from './AppService/app.service';
-import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ import { HeaderComponent } from './header/header.component';
 export class AppComponent implements OnInit {
   title = 'aboMart';
 
-  constructor(private appService: AppService){}
+  constructor(){}
 
   ngOnInit(): void {
     // this.display(this.hideMenu)

@@ -1,12 +1,13 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation, input } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { SignupComponent } from '../signup/signup.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent implements OnInit {
 
@@ -17,12 +18,12 @@ export class HeaderComponent implements OnInit {
 
   hideMenu:boolean = false
 
-  a:string = 'Abolore'
-  ninePlus:any
+  number:number
   ngOnInit(): void {
     this.languages = this.appService.languages
-    this.appService.pushCart(this.a)
-    this.number = this.appService.displayCart.length
+    this.appService.wishListEventEmit.subscribe(() => {
+      this.number = this.appService.wishListCart.length
+    })
   }
 
   @Output() display = new EventEmitter<boolean>()
@@ -44,6 +45,4 @@ export class HeaderComponent implements OnInit {
     this.hideMenu = false
     this.display.emit(this.hideMenu)
   }
-
-  number:number
 }

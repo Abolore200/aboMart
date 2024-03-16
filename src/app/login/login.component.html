@@ -59,6 +59,7 @@
                     <div class="form-input">
                         <div class="submit-btn">
                             <button 
+                            (click)="displayUserAccount()"
                             type="submit" 
                             [ngStyle]="{backgroundColor: passwordInput == '' ||  emailInput == '' ? '#ed8e86' : '#EA4335'}"
                             [disabled]="passwordInput == '' || emailInput == ''">Create Account</button>

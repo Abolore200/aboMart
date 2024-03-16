@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
+import { PRODUCTS } from '../AppModel/app.model';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private appService: AppService){}
 
+  @ViewChild('heart') heart: ElementRef
+
   days:number
   hours:number
   minutes:number
   seconds:number
 
-  products:{name:string,price:number,rating:number,image:string,review:number,discount:number,old:number}[] = []
+  products:PRODUCTS[] = []
 
   ngOnInit(): void {
     const day = new Date().getDate()
@@ -38,6 +41,18 @@ export class HomeComponent implements OnInit {
       this.hideMenu = true
     } else {
       this.hideMenu = !this.hideMenu
+    }
+  }
+
+  toggleWishListBtn:boolean = false
+  addToWishList(product:PRODUCTS,element:HTMLElement){
+    if(element.classList.contains('fa-regular')){
+      if(element.classList.contains('fa-solid')){
+        element.classList.remove('fa-solid')
+      } else {
+        element.classList.add('fa-solid')
+        this.appService.pushProductToWishList(product)
+      }
     }
   }
 }

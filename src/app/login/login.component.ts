@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 
 @Component({
@@ -56,5 +56,13 @@ export class LoginComponent implements OnInit {
     if(this.passwordInput == ''){
       this.BlurPassword.nativeElement.style.borderBottomColor = 'red'
     }
+  }
+
+  @Output() displayAccountEvent = new EventEmitter<boolean>()
+
+  accountIcon:boolean = false
+  displayUserAccount(){
+    this.accountIcon = true
+    this.displayAccountEvent.emit(this.accountIcon)
   }
 }

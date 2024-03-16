@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     FooterComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
