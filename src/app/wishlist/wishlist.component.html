@@ -17,7 +17,7 @@
             <div class="flashsale-products">
                 <div class="product-container" *ngFor="let product of products;" #productContainer>
                     <div class="product-image">
-                        <div class="product-discount"><p>-{{product.discount}}%</p></div>
+                        <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
                         <div class="product-image-card">
                             <div class="image-product-card">
                                 <img [src]="product.image" [alt]="product.name">

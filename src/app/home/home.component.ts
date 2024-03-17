@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   seconds:number
 
   products:PRODUCTS[] = []
+  sellingProducts: PRODUCTS[] = []
+
+  categories: {name:string,class:string}[] = []
 
   ngOnInit(): void {
     const day = new Date().getDate()
@@ -34,6 +37,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.appService.getFlashSalesProducts().subscribe(product => {
       this.products = product
+    })
+
+    this.appService.getCategory().subscribe(category =>{
+      this.categories = category
+    })
+
+    this.appService.getSellingProducts().subscribe(selling => {
+      this.sellingProducts = selling
     })
   }
 
