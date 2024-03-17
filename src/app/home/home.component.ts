@@ -95,4 +95,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+  displayProduct(product:PRODUCTS){
+    console.log(product)
+  }
 }

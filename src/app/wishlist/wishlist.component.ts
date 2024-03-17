@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { PRODUCTS } from '../AppModel/app.model';
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrl: './wishlist.component.css'
+  styleUrl: './wishlist.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class WishlistComponent implements OnInit {
 

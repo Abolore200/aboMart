@@ -150,41 +150,43 @@
             <!-- <div> -->
                 <div class="flashsale-product-container flex-product-container">
                     <div class="flashsale-products flex-products">
-                        <div class="product-container" *ngFor="let product of sellingProducts;" #productContainer>
-                            <div class="product-image">
-                                <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
-                                <div class="product-image-card">
-                                    <div class="image-product-card">
-                                        <img [src]="product.image" [alt]="product.name">
+                        <div class="product-container" *ngFor="let product of sellingProducts;" #productContainer (click)="displayProduct(product)">
+                            <!-- <div (click)="displayProduct()"> -->
+                                <div class="product-image">
+                                    <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
+                                    <div class="product-image-card">
+                                        <div class="image-product-card">
+                                            <img [src]="product.image" [alt]="product.name">
+                                        </div>
+                                        <!-- <button class="add-to-cart-btn">Add To Cart</button> -->
                                     </div>
-                                    <!-- <button class="add-to-cart-btn">Add To Cart</button> -->
+                                    <button class="add-to-cart-btn">Add To Cart</button>
+                                    <button class="wishlist-btn">
+                                        <i 
+                                        #heart 
+                                        class="fa-regular fa-heart" 
+                                        [attr.data-id]="product.id"
+                                        (click)="getProduct(productContainer,product)"></i>
+                                    </button>
                                 </div>
-                                <button class="add-to-cart-btn">Add To Cart</button>
-                                <button class="wishlist-btn">
-                                    <i 
-                                    #heart 
-                                    class="fa-regular fa-heart" 
-                                    [attr.data-id]="product.id"
-                                    (click)="getProduct(productContainer,product)"></i>
-                                </button>
-                            </div>
-                            <div class="product-description">
-                                <div class="product-name"><p>{{product.name}}</p></div>
-                                <div class="product-price">
-                                    <p>${{product.price}}</p>
-                                    <p>${{product.old}}</p>
+                                <div class="product-description">
+                                    <div class="product-name"><p>{{product.name}}</p></div>
+                                    <div class="product-price">
+                                        <p>${{product.price}}</p>
+                                        <p>${{product.old}}</p>
+                                    </div>
+                                    <div class="product-rating">
+                                        <ul>
+                                            <li><i class="fa-solid fa-star"></i></li>
+                                            <li><i class="fa-solid fa-star"></i></li>
+                                            <li><i class="fa-solid fa-star"></i></li>
+                                            <li><i class="fa-solid fa-star"></i></li>
+                                            <li><i class="fa-solid fa-star"></i></li>
+                                        </ul>
+                                        <p>({{product.review}})</p>
+                                    </div>
                                 </div>
-                                <div class="product-rating">
-                                    <ul>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                    </ul>
-                                    <p>({{product.review}})</p>
-                                </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
