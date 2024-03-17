@@ -78,7 +78,7 @@
         </div>
         <div class="flashsale-product-container">
             <div class="flashsale-products">
-                <div class="product-container" *ngFor="let product of products">
+                <div class="product-container" *ngFor="let product of products;" #productContainer>
                     <div class="product-image">
                         <div class="product-discount"><p>-{{product.discount}}%</p></div>
                         <div class="product-image-card">
@@ -91,6 +91,8 @@
                             <i 
                             #heart 
                             class="fa-regular fa-heart" 
+                            [ngClass]="faSolid"
+                            [attr.data-id]="product.id"
                             (click)="addToWishList(product,heart)"></i>
                         </button>
                     </div>

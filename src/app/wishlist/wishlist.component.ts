@@ -11,6 +11,10 @@ export class WishlistComponent implements OnInit {
   constructor(private appService: AppService){}
 
   ngOnInit(): void {
-    console.log(this.appService.wishListCart)
+    this.appService.getWishListProducts().subscribe(products => {
+      if(products.length !== 0){
+        console.log(products)
+      }
+    })
   }
 }

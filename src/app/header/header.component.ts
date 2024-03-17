@@ -21,8 +21,8 @@ export class HeaderComponent implements OnInit {
   number:number
   ngOnInit(): void {
     this.languages = this.appService.languages
-    this.appService.wishListEventEmit.subscribe(() => {
-      this.number = this.appService.wishListCart.length
+    this.appService.wishListEventEmit.subscribe(value => {
+      this.number = value.length
     })
   }
 
