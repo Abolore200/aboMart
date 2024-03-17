@@ -26,6 +26,7 @@ export class WishlistComponent implements OnInit {
     this.noOfWishlist = this.appService.wishListCart.length
   }
 
+  //remove product from wishlist
   addToWishList(product:PRODUCTS){
     this.appService.getWishListProducts().subscribe(products => {
       this.appService.removeProductFromWishList(product,products)

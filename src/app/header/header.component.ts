@@ -1,7 +1,5 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation, input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
-import { SignupComponent } from '../signup/signup.component';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
