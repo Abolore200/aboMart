@@ -1,1 +1,45 @@
-<p>wishlist works!</p>
+<div class="wishlist-container">
+    <div class="wishlist-body">
+        <div class="wishlist-flex-header">
+            <div class="wishlist-span">
+                <p>Wishlist
+                    <span style="font-family:'Inter';color:#000;">({{noOfWishlist}})</span>
+                </p>
+            </div>
+            <div class="move-btn-header">
+                <button type="button">Move All To Bag</button>
+            </div>
+        </div>
+        <div *ngIf="noOfWishlist === 0" class="empty-wishlist-card">
+            <p>Wishlist is Empty</p>
+        </div>
+        <div class="flashsale-product-container">
+            <div class="flashsale-products">
+                <div class="product-container" *ngFor="let product of products;" #productContainer>
+                    <div class="product-image">
+                        <div class="product-discount"><p>-{{product.discount}}%</p></div>
+                        <div class="product-image-card">
+                            <div class="image-product-card">
+                                <img [src]="product.image" [alt]="product.name">
+                            </div>
+                            <button class="add-to-cart-btn">Add To Cart</button>
+                        </div>
+                        <button class="wishlist-btn">
+                            <i 
+                            class="fa-regular fa-trash-can" 
+                            [attr.data-id]="product.id"
+                            (click)="addToWishList(product)"></i>
+                        </button>
+                    </div>
+                    <div class="product-description">
+                        <div class="product-name"><p>{{product.name}}</p></div>
+                        <div class="product-price">
+                            <p>${{product.price}}</p>
+                            <p>${{product.old}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
