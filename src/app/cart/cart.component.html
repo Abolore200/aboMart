@@ -1,0 +1,61 @@
+<div class="cart-home-container">
+    <div class="cart-container-div">
+        <div class="cart-note-head">
+            <p>Cart /</p>
+        </div>
+        <div class="empty-cart-container" *ngIf="cartProducts.length === 0">
+            <p>Cart is Empty</p>
+        </div>
+        <div class="cart-product-container" *ngIf="cartProducts.length > 0">
+            <div class="cart-products-div">
+                <div class="cart-products-col">
+                    <div class="cart-product" *ngFor="let cart of cartProducts" #cartContainer>
+                        <div class="cart-image">
+                            <div class="cart-card-image">
+                                <img [src]="cart.image" [alt]="cart.name">
+                            </div>
+                        </div>
+                        <div class="cart-description">
+                            <div class="cart-name-card">
+    
+                            </div>
+                            <div class="cart-quantity">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total-container">
+                <div class="sticky-cart-total">
+                    <div class="cart-total-head">
+                        <div class="cart-total-note">
+                            <p>Cart Total</p>
+                        </div>
+                        <div class="subtotal-container">
+                            <span>Subtotal</span>
+                            <span>&#x20A6;0000</span>
+                        </div>
+                        <div class="shipping-container">
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </div>
+                        <div class="total-price-container">
+                            <span>Total</span>
+                            <span>&#x20A6;0000</span>
+                        </div>
+                        <div class="proceed-btn-container">
+                            <button type="button">Proceed To Checkout</button>
+                        </div>
+                    </div>
+                    <div class="coupon-container">
+                        <div class="input-coupon">
+                            <input type="text" name="coupon" placeholder="Enter Coupon">
+                            <button type="button">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

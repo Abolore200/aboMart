@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appService: AppService){}
 
   @ViewChildren('productContainer') productContainer! : QueryList<any>
+  // @ViewChildren('productContainer') cartContainer! : QueryList<any>
 
   days:number
   hours:number
@@ -52,12 +53,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     //icon should keep class if available in array
     this.productContainer.forEach(prod => {
+
+      //wishlist
       this.appService.getWishListProducts().subscribe(products => {
         products.forEach(product => {
           let {id} = product
           let heart = prod.nativeElement.querySelector(`[data-id="${id}"]`)
           if(heart){
             heart.classList.add('fa-solid')
+          }
+        })
+      })
+
+      //cart
+      this.appService.getProductCart().subscribe(products => {
+        products.forEach(product => {
+          let {id} = product
+          let quantityBtn = prod.nativeElement.querySelector(`[cart-id="${id}"]`)
+          if(quantityBtn){
+            quantityBtn.classList.add('show')
           }
         })
       })

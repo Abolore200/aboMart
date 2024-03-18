@@ -1,0 +1,31 @@
+.cart-home-container{margin:70px 0;}
+.cart-container-div{width:90%;margin:0 auto;}
+.cart-note-head p{font-weight:500;font-family:'Raleway';}
+.cart-product-container{margin:20px 0;}
+.cart-product-container{display:flex;gap:0 20px;}
+.cart-products-div{width:100%;}
+.cart-products-col{display:flex;flex-direction:column;gap:20px 0;padding:15px 20px;border-right:1px solid #f5f5f5;}
+.cart-products-col{background-color:#fff;box-shadow:0px 0px 5px 5px#f5f5f5;border-radius:4px;width:100%;}
+.cart-product{display:flex;padding:5px 25px 5px 0;}
+.cart-product{border-bottom:1px solid #f5f5f5;}
+.cart-product:last-child{border-bottom:none;}
+.cart-card-image{width:100px;height:100px;}
+.cart-card-image img{width:100%;aspect-ratio:1;}
+.empty-cart-container{margin-top:50px;}
+.empty-cart-container p{font-weight:600;text-align:center;font-size:3rem;}
+.cart-total-container{width:45%;}
+.cart-total-head{width:100%;background-color:#fff;border-radius:4px;padding:20px;box-shadow:0px 0px 5px 5px#f5f5f5;}
+.sticky-cart-total{width:100%;display:flex;flex-direction:column-reverse;gap:15px 0;}
+.sticky-cart-total{position:sticky;top:10px;position:-webkit-sticky;}
+.cart-total-note p{font-weight:600;font-size:1.1rem;}
+.subtotal-container,.shipping-container,.total-price-container{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid #d3d3d3;}
+.subtotal-container *,.shipping-container *,.total-price-container *{color:#000;}
+.subtotal-container span,.shipping-container span,.total-price-container span{font-family:'Raleway';font-size:1rem;}
+.subtotal-container span:last-child,.shipping-container span:last-child,.total-price-container span:last-child{font-weight:600;}
+.total-price-container{border-bottom:none;}
+.proceed-btn-container{margin:10px 0;display:flex;justify-content:center;}
+.proceed-btn-container button{border:none;padding:15px 25px;font-weight:500;color:#fff;border-radius:4px;background-color:#db4444;font-size:.9rem;font-family:'Inter';}
+.input-coupon{display:flex;align-items:center;}
+.input-coupon :is(input,button){font-family:'Inter';border:none;font-size:.9rem;}
+.input-coupon button{background-color:#db4444;color:#fff;font-weight:500;padding:15px 30px;border-radius:0 4px 4px 0;font-size:.9rem;}
+.input-coupon input{width:100%;border-radius:4px 0 0 4px;background-color:#f5f5f5;color:#808080;padding:15px 10px;}
