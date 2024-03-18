@@ -1,7 +1,7 @@
 <div class="cart-home-container">
     <div class="cart-container-div">
         <div class="cart-note-head">
-            <p>Cart /</p>
+            <p>Cart <span>({{noOfCart}})</span></p>
         </div>
         <div class="empty-cart-container" *ngIf="cartProducts.length === 0">
             <p>Cart is Empty</p>
@@ -17,10 +17,38 @@
                         </div>
                         <div class="cart-description">
                             <div class="cart-name-card">
-    
+                                <div class="cart-name">
+                                    <p>{{cart.name}}</p>
+                                </div>
+                                <div class="cart-price">
+                                    <p>&#x20A6;{{cart.price}}</p>
+                                    <p>&#x20A6;{{cart.old}}</p>
+                                </div>
+                                <div class="cart-rating">
+                                    <ul>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: cart.review > 80 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    </ul>
+                                    <p>({{cart.review}})</p>
+                                </div>
                             </div>
                             <div class="cart-quantity">
-                                
+                                <div class="remove-cart-icon">
+                                    <button type="button"><i class="fa-regular fa-trash-can"></i></button>
+                                </div>
+                                <div class="cart-quantity-btn">
+                                    <div class="quantity-btn">
+                                        <button 
+                                        [disabled]="cart.quantity === 1" 
+                                        [ngClass]="cart.quantity === 1 ? 'disabled' : ''"
+                                        [ngStyle]="{backgroundColor: cart.quantity > 1 ? '#db4444' : ''}"><i class="fa-solid fa-minus"></i></button>
+                                        <span>{{cart.quantity}}</span>
+                                        <button><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

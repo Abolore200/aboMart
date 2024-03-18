@@ -1,6 +1,6 @@
 .wishlist-container{margin:70px 0 100px;}
 .wishlist-body{width:90%;margin:0 auto;}
-.wishlist-flex-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0;}
+.wishlist-flex-header{display:flex;align-items:center;justify-content:space-between;}
 .wishlist-span p{font-weight:500;font-family:'Raleway';}
 .move-btn-header button{padding:8px 30px;border:1px solid #000;background-color:transparent;font-weight:500;font-family:'Inter';border-radius:4px;font-size:.8rem;}
 .empty-wishlist-card{margin-top:50px;}

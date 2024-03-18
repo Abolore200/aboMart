@@ -122,4 +122,9 @@ export class AppService {
     })
     this.productCartEmit.emit(this.productCart)
   }
+
+  //Ng AFter View Init
+  displayClickedProduct(product:PRODUCTS,prod:any){
+    
+  }
 }

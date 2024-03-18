@@ -14,10 +14,12 @@ export class CartComponent implements OnInit, AfterViewInit {
   @ViewChildren('cartContainer') cartContainer! : QueryList<any>
 
   cartProducts: PRODUCTS[] = []
+  noOfCart:number
 
   ngOnInit(): void {
     this.appService.getProductCart().subscribe(products => {
       this.cartProducts = products
+      this.noOfCart = products.length
     })
   }
 

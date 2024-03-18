@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appService: AppService){}
 
   @ViewChildren('productContainer') productContainer! : QueryList<any>
-  // @ViewChildren('productContainer') cartContainer! : QueryList<any>
 
   days:number
   hours:number
@@ -144,6 +143,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.appService.getProductCart().subscribe(products => {
         this.appService.removeProductFromCart(product,products)
       })
+      
     } else {
       product.quantity -= this.quantityNumber
     }
