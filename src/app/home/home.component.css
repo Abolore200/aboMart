@@ -53,7 +53,7 @@
 .menu-btn button i{font-size:1.5rem;}
 .flex-product-container{margin-top:50px;}
 .flex-products{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));flex-wrap:wrap;gap:20px 30px;}
-.product-container{display:flex;flex-direction:column;justify-content:space-between;}
+.product-container{display:flex;flex-direction:column;justify-content:space-between;box-shadow:0px 0px 5px #f5f5f5;}
 .product-image{width:100%;aspect-ratio:1;background-color:#f5f5f5;position:relative;border-radius:4px;}
 .wishlist-btn{padding:7px;border-radius:50%;border:none;background-color:#fff;position:absolute;top:7%;right:7%;cursor:pointer;}
 .wishlist-btn i{font-size:1.5rem;color:#db4444;}
@@ -74,11 +74,9 @@
 .product-rating ul{display:flex;gap:0 5px;align-items:center;}
 .product-rating ul li{list-style:none;}
 .product-rating ul li i{color:#ffad33;font-size:1rem;}
-
 .product-image-card{position:relative;}
 .product-image-card:hover .add-to-cart-btn{visibility:visible;}
 .add-to-cart-btn{position:absolute;bottom:0;border:none;cursor:pointer;}
-
 .category-container{margin:70px auto;width:90%;}
 .category-flex{margin:50px 0 0;}
 .category-flex ul{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));}
@@ -88,8 +86,15 @@
 .category-flex ul li i{font-size:2rem;}
 .category-flex ul li:first-child{background-color:#db4444;border:1px solid #db4444;}
 .category-flex ul li:first-child :is(i,span){color:#fff;}
-
 .selling-products-container{width:90%;margin:0 auto;}
+
+.quantity-btn-container{width:100%;justify-content:space-between;position:absolute;bottom:0;align-items:center;background-color:#000;}
+.quantity-btn-container{padding:5px 20px;display:none;}
+.quantity-btn-container button{padding:5px 8px;font-weight:500;font-family:'Inter';font-size:1rem;border:none;border-radius:4px;cursor:pointer;}
+.quantity-btn-container span{color:#fff;font-size:1rem;cursor:pointer;}
+.add-to-cart-btn.hide{display:none;}
+.quantity-btn-container.show{display:flex;}
+
 
 @media screen and (max-width:768px){
     .hero-section-container{flex-direction:column;width:100%;}

@@ -16,11 +16,19 @@ export class HeaderComponent implements OnInit {
 
   hideMenu:boolean = false
 
-  number:number
+  wishListNumber:number
+  cartNumber: number
   ngOnInit(): void {
     this.languages = this.appService.languages
+
+    //WISHLIST NUMBER
     this.appService.wishListEventEmit.subscribe(value => {
-      this.number = value.length
+      this.wishListNumber = value.length
+    })
+
+    //CART NUMBER
+    this.appService.productCartEmit.subscribe(value => {
+      this.cartNumber = value.length
     })
   }
 

@@ -96,7 +96,47 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
+  //display product
   displayProduct(product:PRODUCTS){
-    console.log(product)
+
+  }
+
+  addToCart(productContainer:HTMLDivElement,product:PRODUCTS){
+    const cartBtn = productContainer.querySelector('.add-to-cart-btn')
+    const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+    if(cartBtn){
+      cartBtn.classList.add('hide')
+      quantityBtn?.classList.add('show')
+    }
+
+    //add product to cart
+    this.appService.addProductToCart(product)
+  }
+
+  //
+  quantityNumber:number = 1
+
+  //decrease cart quantity
+  decreaseCartQuanity(product:PRODUCTS,productContainer:HTMLDivElement){
+    if(product.quantity === 1){
+      const cartBtn = productContainer.querySelector('.add-to-cart-btn')
+      const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+      if(cartBtn){
+        cartBtn.classList.remove('hide')
+        quantityBtn?.classList.remove('show')
+      }
+
+      //remove product from cart
+      this.appService.getProductCart().subscribe(products => {
+        this.appService.removeProductFromCart(product,products)
+      })
+    } else {
+      product.quantity -= this.quantityNumber
+    }
+  }
+
+  //increase cart quantity
+  increaseCartQuantity(product:PRODUCTS){
+    product.quantity += this.quantityNumber
   }
 }

@@ -6,5 +6,6 @@ export interface PRODUCTS {
     image:string;
     review:number;
     discount:number;
-    old:number
+    old:number,
+    quantity:number
 }
