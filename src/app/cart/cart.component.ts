@@ -21,6 +21,10 @@ export class CartComponent implements OnInit, AfterViewInit {
       this.cartProducts = products
       this.noOfCart = products.length
     })
+
+    this.appService.productCartEmit.subscribe(products => {
+      this.noOfCart = products.length
+    })
   }
 
   ngAfterViewInit(): void {
@@ -30,6 +34,25 @@ export class CartComponent implements OnInit, AfterViewInit {
           
         })
       })
+    })
+  }
+
+  quantityNumber:number = 1
+
+  //Increase quantity
+  increaseQuatity(cart:PRODUCTS){
+    cart.quantity += this.quantityNumber
+  }
+
+  //Decrease qunatity
+  decreaseQuantity(cart:PRODUCTS){
+    cart.quantity -= this.quantityNumber
+  }
+
+  //Remove product from Cart
+  removeProduct(cart:PRODUCTS){
+    this.appService.getProductCart().subscribe(products => {
+      this.appService.removeProductFromCart(cart,products)
     })
   }
 }

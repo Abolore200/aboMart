@@ -37,16 +37,17 @@
                             </div>
                             <div class="cart-quantity">
                                 <div class="remove-cart-icon">
-                                    <button type="button"><i class="fa-regular fa-trash-can"></i></button>
+                                    <button type="button" (click)="removeProduct(cart)"><i class="fa-regular fa-trash-can"></i></button>
                                 </div>
                                 <div class="cart-quantity-btn">
                                     <div class="quantity-btn">
                                         <button 
+                                        (click)="decreaseQuantity(cart)"
                                         [disabled]="cart.quantity === 1" 
                                         [ngClass]="cart.quantity === 1 ? 'disabled' : ''"
                                         [ngStyle]="{backgroundColor: cart.quantity > 1 ? '#db4444' : ''}"><i class="fa-solid fa-minus"></i></button>
                                         <span>{{cart.quantity}}</span>
-                                        <button><i class="fa-solid fa-plus"></i></button>
+                                        <button (click)="increaseQuatity(cart)"><i class="fa-solid fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>

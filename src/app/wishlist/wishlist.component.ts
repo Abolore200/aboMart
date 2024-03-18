@@ -28,7 +28,7 @@ export class WishlistComponent implements OnInit {
   }
 
   //remove product from wishlist
-  addToWishList(product:PRODUCTS){
+  removeFromWishList(product:PRODUCTS){
     this.appService.getWishListProducts().subscribe(products => {
       this.appService.removeProductFromWishList(product,products)
     })
