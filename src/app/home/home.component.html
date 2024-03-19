@@ -87,11 +87,8 @@
                             </div>
                             <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
                             <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
-
                                 <button (click)="decreaseCartQuanity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
-
                                 <span [attr.quantity-id]="product.id">{{ product.quantity }}</span>
-
                                 <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -156,7 +153,7 @@
         <div>
             <div class="flashsale-product-container flex-product-container">
                 <div class="flashsale-products flex-products">
-                    <div class="product-container" *ngFor="let product of sellingProducts;" #productContainer (click)="displayProduct(product)">
+                    <div class="product-container" *ngFor="let product of sellingProducts;" #productContainer>
                         <div class="product-image">
                             <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
                             <div class="product-image-card">
@@ -166,7 +163,7 @@
                                 <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
                                 <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
                                     <button (click)="decreaseCartQuanity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
-                                    <span [attr.quantity-id]="product.quantity">{{product.quantity}}</span>
+                                    <span [attr.quantity-id]="product.id">{{product.quantity}}</span>
                                     <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>

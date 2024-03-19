@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { PRODUCTS } from '../AppModel/app.model';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   products:PRODUCTS[] = []
   sellingProducts: PRODUCTS[] = []
   categories:{name:string,class:string}[] = []
+
+  // @Input() value = new EventEmitter<string>()
 
   ngOnInit(): void {
     const day = new Date().getDate()
@@ -76,6 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           let card = prod.nativeElement.querySelector(`[quantity-id="${id}"]`)
           if(card){
             card.innerHTML = quantity
+            console.log(card)
           }
         })
       })
@@ -132,6 +136,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     //add product to cart
     this.appService.addProductToCart(product)
+
+    this.appService.getName(product.name)
   }
 
   //

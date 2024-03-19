@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class HeaderComponent implements OnInit {
   @ViewChild('removeNavBar') removeNavBar: ElementRef
 
   languages:string[] = []
-
   hideMenu:boolean = false
-
   wishListNumber:number
   cartNumber: number
+  productName:string | boolean
+
   ngOnInit(): void {
     this.languages = this.appService.languages
 
@@ -29,6 +29,16 @@ export class HeaderComponent implements OnInit {
     //CART NUMBER
     this.appService.productCartEmit.subscribe(value => {
       this.cartNumber = value.length
+    })
+
+    this.appService.nameEmit.subscribe(name => {
+      if(name){
+        this.productName = name
+
+        setTimeout(() => {
+          this.productName = false
+        },1000)
+      }
     })
   }
 
@@ -51,4 +61,6 @@ export class HeaderComponent implements OnInit {
     this.hideMenu = false
     this.display.emit(this.hideMenu)
   }
+
+  
 }

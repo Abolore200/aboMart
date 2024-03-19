@@ -4,7 +4,10 @@
             <p>Cart <span>({{noOfCart}})</span></p>
         </div>
         <div class="empty-cart-container" *ngIf="cartProducts.length === 0">
-            <p>Cart is Empty</p>
+            <p> 
+                <i class="fa-solid fa-cart-plus"></i>
+                Cart is Empty
+            </p>
         </div>
         <div class="cart-product-container" *ngIf="cartProducts.length > 0">
             <div class="cart-products-div">

@@ -126,12 +126,10 @@ export class AppService {
   //Increase Quantity
   increaseQuanity(product:PRODUCTS){
     this.getProductCart().subscribe(products => {
-      // if(products.length !== 0){
-        const item = products.find(item => item.id === product.id)
-        if(item){
-          item.quantity++
-        }
-      // }
+      const item = products.find(item => item.id === product.id)
+      if(item){
+        item.quantity++
+      }
     })
   }
 
@@ -149,5 +147,13 @@ export class AppService {
   //Ng AFter View Init
   displayClickedProduct(product:PRODUCTS,prod:any){
     
+  }
+
+
+  //
+  nameEmit = new EventEmitter<string>()
+  //getName
+  getName(name:string){
+    this.nameEmit.emit(name)
   }
 }

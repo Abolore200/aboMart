@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from './AppService/app.service';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(){}
 
   ngOnInit(): void {
-    // this.display(this.hideMenu)
+    
   }
 
   hideMenu: boolean

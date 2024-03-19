@@ -1,4 +1,11 @@
-<div class="header-container">
+<ng-container  *ngIf="productName">
+  <div class="fixed-container" [ngClass]="productName ? 'forward' : ''">
+    <div class="fixed-body">
+     <p><span>{{productName}}</span> Added</p>
+    </div>
+   </div>
+</ng-container>
+<div class="header-container" [ngClass]="productName ? 'padding' : '' ">
     <div class="header" hidden>
       <div class="headnote">
         <p class="headnote-flex"> 
