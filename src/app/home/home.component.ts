@@ -21,8 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   products:PRODUCTS[] = []
   sellingProducts: PRODUCTS[] = []
-
-  categories: {name:string,class:string}[] = []
+  categories:{name:string,class:string}[] = []
 
   ngOnInit(): void {
     const day = new Date().getDate()
@@ -68,9 +67,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.appService.getProductCart().subscribe(products => {
         products.forEach(product => {
           let {id} = product
+          let {quantity} = product
           let quantityBtn = prod.nativeElement.querySelector(`[cart-id="${id}"]`)
           if(quantityBtn){
             quantityBtn.classList.add('show')
+          }
+
+          let card = prod.nativeElement.querySelector(`[quantity-id="${id}"]`)
+          if(card){
+            card.innerHTML = quantity
           }
         })
       })
@@ -114,9 +119,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
+  //add product to cart
   addToCart(productContainer:HTMLDivElement,product:PRODUCTS){
     const cartBtn = productContainer.querySelector('.add-to-cart-btn')
     const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+
+    //add classlist to cartbtn and quantity btn if it returns true
     if(cartBtn){
       cartBtn.classList.add('hide')
       quantityBtn?.classList.add('show')
@@ -127,13 +135,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   //
-  quantityNumber:number = 1
+  quantityNumber:number
 
   //decrease cart quantity
   decreaseCartQuanity(product:PRODUCTS,productContainer:HTMLDivElement){
+
+    //if quantity === 1, return method
     if(product.quantity === 1){
       const cartBtn = productContainer.querySelector('.add-to-cart-btn')
       const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+
+      //add classlist if value returns true
       if(cartBtn){
         cartBtn.classList.remove('hide')
         quantityBtn?.classList.remove('show')
@@ -143,14 +155,47 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.appService.getProductCart().subscribe(products => {
         this.appService.removeProductFromCart(product,products)
       })
-      
-    } else {
-      product.quantity -= this.quantityNumber
+
+    } 
+    else {
+
+      //decrease quantity from cart when clicked
+      this.appService.decreaseQuanity(product)
+
+      //update quantity value when changed
+      this.appService.getProductCart().subscribe(prod => {
+        prod.forEach(productCart => {
+          let {id} = productCart
+          let {quantity} = productCart
+          this.productContainer.forEach(lists => {
+            let quantityValue = lists.nativeElement.querySelector(`[quantity-id="${id}"]`)
+            if(quantityValue){
+              quantityValue.innerHTML = quantity
+            }
+          })
+        })
+      })
     }
   }
 
   //increase cart quantity
   increaseCartQuantity(product:PRODUCTS){
-    product.quantity += this.quantityNumber
+
+    //increase quantity from cart when clicked
+    this.appService.increaseQuanity(product)
+
+    //update quantity value when changed
+    this.appService.getProductCart().subscribe(prod => {
+      prod.forEach(productCart => {
+        let {id} = productCart
+        let {quantity} = productCart
+        this.productContainer.forEach(lists => {
+          let quantityValue = lists.nativeElement.querySelector(`[quantity-id="${id}"]`)
+          if(quantityValue){
+            quantityValue.innerHTML = quantity
+          }
+        })
+      })
+    })
   }
 }

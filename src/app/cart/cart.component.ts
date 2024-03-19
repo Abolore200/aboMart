@@ -15,11 +15,19 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   cartProducts: PRODUCTS[] = []
   noOfCart:number
+  totalAmountOfCart:number
 
   ngOnInit(): void {
     this.appService.getProductCart().subscribe(products => {
       this.cartProducts = products
       this.noOfCart = products.length
+
+      if(products.length !== 0){
+        this.totalAmountOfCart = products.map(i =>
+          i.price * i.quantity
+        )
+        .reduce((a, b) => a + b)
+      }
     })
 
     this.appService.productCartEmit.subscribe(products => {
@@ -28,13 +36,7 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.cartContainer.forEach(carts => {
-      this.appService.getProductCart().subscribe(products => {
-        products.forEach(product => {
-          
-        })
-      })
-    })
+    
   }
 
   quantityNumber:number = 1
@@ -42,17 +44,39 @@ export class CartComponent implements OnInit, AfterViewInit {
   //Increase quantity
   increaseQuatity(cart:PRODUCTS){
     cart.quantity += this.quantityNumber
+    this.appService.getProductCart().subscribe(products => {
+
+      //add quantity and price on click
+      this.totalAmountOfCart = products.map(i =>
+        i.price * i.quantity
+      )
+      .reduce((a, b) => a + b)
+    })
   }
 
   //Decrease qunatity
   decreaseQuantity(cart:PRODUCTS){
     cart.quantity -= this.quantityNumber
+    this.appService.getProductCart().subscribe(products => {
+
+      //subtract quantity and price on click
+      this.totalAmountOfCart = products.map(i =>
+        i.price * i.quantity
+      )
+      .reduce((a, b) => a + b)
+    })
   }
 
-  //Remove product from Cart
+  //Remove total price product from Cart
   removeProduct(cart:PRODUCTS){
     this.appService.getProductCart().subscribe(products => {
       this.appService.removeProductFromCart(cart,products)
+      if(products.length !== 0){
+        this.totalAmountOfCart = products.map(i =>
+          i.price * i.quantity
+        )
+        .reduce((a, b) => a + b)
+      }
     })
   }
 }

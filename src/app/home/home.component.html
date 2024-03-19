@@ -87,8 +87,11 @@
                             </div>
                             <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
                             <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
+
                                 <button (click)="decreaseCartQuanity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
-                                <span>{{product.quantity}}</span>
+
+                                <span [attr.quantity-id]="product.id">{{ product.quantity }}</span>
+
                                 <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -163,7 +166,7 @@
                                 <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
                                 <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
                                     <button (click)="decreaseCartQuanity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
-                                    <span>{{product.quantity}}</span>
+                                    <span [attr.quantity-id]="product.quantity">{{product.quantity}}</span>
                                     <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>

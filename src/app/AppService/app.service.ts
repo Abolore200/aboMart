@@ -28,6 +28,10 @@ export class AppService {
 
   wishListCart: PRODUCTS[] = []
 
+  getWishListProducts(): Observable<PRODUCTS[]>{
+    return of(this.wishListCart)
+  }
+
   wishListEventEmit = new EventEmitter<PRODUCTS[]>()
 
   pushProductToWishList(product:PRODUCTS){
@@ -45,10 +49,6 @@ export class AppService {
       }
     )
     this.wishListEventEmit.emit(this.wishListCart)
-  }
-
-  getWishListProducts(): Observable<PRODUCTS[]>{
-    return of(this.wishListCart)
   }
 
   removeProductFromWishList(product:PRODUCTS, products:PRODUCTS[]){
@@ -122,6 +122,29 @@ export class AppService {
     })
     this.productCartEmit.emit(this.productCart)
   }
+
+  //Increase Quantity
+  increaseQuanity(product:PRODUCTS){
+    this.getProductCart().subscribe(products => {
+      // if(products.length !== 0){
+        const item = products.find(item => item.id === product.id)
+        if(item){
+          item.quantity++
+        }
+      // }
+    })
+  }
+
+  //Decrease Quantity
+  decreaseQuanity(product:PRODUCTS){
+    this.getProductCart().subscribe(products => {
+      const item = products.find(item => item.id === product.id)
+      if(item && item.quantity > 1){
+        item.quantity--
+      }
+    })
+  }
+  
 
   //Ng AFter View Init
   displayClickedProduct(product:PRODUCTS,prod:any){

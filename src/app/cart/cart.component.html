@@ -46,7 +46,7 @@
                                         [disabled]="cart.quantity === 1" 
                                         [ngClass]="cart.quantity === 1 ? 'disabled' : ''"
                                         [ngStyle]="{backgroundColor: cart.quantity > 1 ? '#db4444' : ''}"><i class="fa-solid fa-minus"></i></button>
-                                        <span>{{cart.quantity}}</span>
+                                        <span [attr.quantity-id]="cart.id">{{cart.quantity}}</span>
                                         <button (click)="increaseQuatity(cart)"><i class="fa-solid fa-plus"></i></button>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="total-price-container">
                             <span>Total</span>
-                            <span>&#x20A6;0000</span>
+                            <span>&#x20A6;{{totalAmountOfCart}}</span>
                         </div>
                         <div class="proceed-btn-container">
                             <button type="button">Proceed To Checkout</button>
