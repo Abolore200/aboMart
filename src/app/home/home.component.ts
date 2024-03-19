@@ -79,8 +79,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
           let card = prod.nativeElement.querySelector(`[quantity-id="${id}"]`)
           if(card){
             card.innerHTML = quantity
-            console.log(card)
+            
+            let quantityID = Number(card.getAttribute('quantity-id'))
+            if(id !== quantityID){
+              console.log('Not Available')
+            } else {
+              console.log('Available')
+            }
           }
+
+          // let filter = !products.some(item => item.id === card)
+          // console.log(filter)
         })
       })
     })
