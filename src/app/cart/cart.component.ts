@@ -36,7 +36,13 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    
+    this.cartContainer.forEach(carts => {
+      this.appService.getProductCart().subscribe(products => {
+        products.forEach(product => {
+
+        })
+      })
+    }) 
   }
 
   quantityNumber:number = 1

@@ -58,11 +58,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  @Output() displayAccountEvent = new EventEmitter<boolean>()
-
-  accountIcon:boolean = false
-  displayUserAccount(){
-    this.accountIcon = true
-    this.displayAccountEvent.emit(this.accountIcon)
+  accountIcon:boolean = true
+  loginAccount(){
+    this.appService.loginEmit.emit(this.accountIcon)
   }
 }

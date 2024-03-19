@@ -134,17 +134,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
       quantityBtn?.classList.add('show')
     }
 
+    //WILL COME BACK TO THIS
+    // this.appService.getProductName(product.name)
+
     //add product to cart
     this.appService.addProductToCart(product)
-
-    this.appService.getName(product.name)
   }
 
   //
   quantityNumber:number
 
   //decrease cart quantity
-  decreaseCartQuanity(product:PRODUCTS,productContainer:HTMLDivElement){
+  decreaseCartQuantity(product:PRODUCTS,productContainer:HTMLDivElement){
 
     //if quantity === 1, return method
     if(product.quantity === 1){
@@ -162,11 +163,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.appService.removeProductFromCart(product,products)
       })
 
-    } 
-    else {
+    } else {
 
       //decrease quantity from cart when clicked
-      this.appService.decreaseQuanity(product)
+      this.appService.decreaseQuantity(product)
 
       //update quantity value when changed
       this.appService.getProductCart().subscribe(prod => {
@@ -188,7 +188,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   increaseCartQuantity(product:PRODUCTS){
 
     //increase quantity from cart when clicked
-    this.appService.increaseQuanity(product)
+    this.appService.increaseQuantity(product)
 
     //update quantity value when changed
     this.appService.getProductCart().subscribe(prod => {

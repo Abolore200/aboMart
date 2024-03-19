@@ -124,21 +124,23 @@ export class AppService {
   }
 
   //Increase Quantity
-  increaseQuanity(product:PRODUCTS){
+  increaseQuantity(product:PRODUCTS){
     this.getProductCart().subscribe(products => {
       const item = products.find(item => item.id === product.id)
       if(item){
         item.quantity++
+        product.quantity = item.quantity
       }
     })
   }
 
   //Decrease Quantity
-  decreaseQuanity(product:PRODUCTS){
+  decreaseQuantity(product:PRODUCTS){
     this.getProductCart().subscribe(products => {
       const item = products.find(item => item.id === product.id)
       if(item && item.quantity > 1){
         item.quantity--
+        product.quantity = item.quantity
       }
     })
   }
@@ -149,11 +151,21 @@ export class AppService {
     
   }
 
+  //PRODUCT NAME EMIT
+  // product emitter to header component
+  productNameEmit = new EventEmitter<string>()
 
-  //
-  nameEmit = new EventEmitter<string>()
-  //getName
-  getName(name:string){
-    this.nameEmit.emit(name)
+  //Emit product to header component on click
+  getProductName(product:string){
+    this.productNameEmit.emit(product)
+  }
+
+  //LOGIN TRUE EMIT 
+  //login emitter to header component
+  loginEmit = new EventEmitter<boolean>()
+
+  //Emit TRUE to header component on click
+  getLogin(value:boolean){
+    this.loginEmit.emit(value)
   }
 }

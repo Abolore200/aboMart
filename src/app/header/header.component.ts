@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   wishListNumber:number
   cartNumber: number
   productName:string | boolean
+  displayAccount:boolean
 
   ngOnInit(): void {
     this.languages = this.appService.languages
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
       this.cartNumber = value.length
     })
 
-    this.appService.nameEmit.subscribe(name => {
+    // DISPLAY PRODUCT NAME ADDED TO CART 
+    this.appService.productNameEmit.subscribe(name => {
       if(name){
         this.productName = name
 
@@ -39,6 +41,11 @@ export class HeaderComponent implements OnInit {
           this.productName = false
         },1000)
       }
+    })
+
+    // DISPLAY ACCOUNT ICON WHEN TRUE
+    this.appService.loginEmit.subscribe(login => {
+      this.displayAccount = login
     })
   }
 
