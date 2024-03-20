@@ -78,82 +78,8 @@
         </div>
         <div class="flashsale-product-container flex-product-container">
             <div class="flashsale-products flex-products">
-                <div class="product-container" *ngFor="let product of products;" #productContainer>
-                    <div class="product-image">
-                        <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
-                        <div class="product-image-card">
-                            <div class="image-product-card">
-                                <img [src]="product.image" [alt]="product.name">
-                            </div>
-                            <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
-                            <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
-                                <button (click)="decreaseCartQuantity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
-                                <span [attr.quantity-id]="product.id">{{product.quantity}}</span>
-                                <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                        </div>
-                        <button class="wishlist-btn">
-                            <i 
-                            #heart 
-                            class="fa-regular fa-heart" 
-                            [attr.data-id]="product.id"
-                            (click)="getProduct(productContainer,product)"></i>
-                        </button>
-                    </div>
-                    <div class="product-description">
-                        <div class="product-name"><p>{{product.name}}</p></div>
-                        <div class="product-price">
-                            <p>&#x20A6;{{product.price}}</p>
-                            <p>&#x20A6;{{product.old}}</p>
-                        </div>
-                        <div class="product-rating">
-                            <ul>
-                                <li><i class="fa-solid fa-star"></i></li>
-                                <li><i class="fa-solid fa-star"></i></li>
-                                <li><i class="fa-solid fa-star"></i></li>
-                                <li><i class="fa-solid fa-star"></i></li>
-                                <li><i class="fa-solid fa-star"></i></li>
-                            </ul>
-                            <p>({{product.review}})</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="category-container">
-        <div class="category-head">
-            <div class="category-box"></div>
-            <span>Categories</span>
-        </div>
-        <div class="browse-category">
-            <span>Browse By Category</span>
-        </div>
-        <div class="category-flex">
-            <ul>
-                <li>
-                    <i class="fa-solid fa-bars"></i>
-                    <span>All</span>
-                </li>
-                <li *ngFor="let category of categories">
-                    <i [ngClass]="category.class"></i>
-                    <span>{{category.name}}</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="selling-products-container">
-        <div class="selling-head">
-            <div class="selling-box"></div>
-            <span>This Month</span>
-        </div>
-        <div class="selling-product">
-            <span>Best Selling Products</span>
-        </div>
-        <div>
-            <div class="flashsale-product-container flex-product-container">
-                <div class="flashsale-products flex-products">
-                    <div class="product-container" *ngFor="let product of sellingProducts;" #productContainer>
+                <div class="product-container" *ngFor="let product of products; let i = index" #productContainer>
+                    <ng-container *ngIf="product.category == 'flash'">
                         <div class="product-image">
                             <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
                             <div class="product-image-card">
@@ -192,6 +118,84 @@
                                 <p>({{product.review}})</p>
                             </div>
                         </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category-container">
+        <div class="category-head">
+            <div class="category-box"></div>
+            <span>Categories</span>
+        </div>
+        <div class="browse-category">
+            <span>Browse By Category</span>
+        </div>
+        <div class="category-flex">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-bars"></i>
+                    <span>All</span>
+                </li>
+                <li *ngFor="let category of categories">
+                    <i [ngClass]="category.class"></i>
+                    <span>{{category.name}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="selling-products-container">
+        <div class="selling-head">
+            <div class="selling-box"></div>
+            <span>This Month</span>
+        </div>
+        <div class="selling-product">
+            <span>Best Selling Products</span>
+        </div>
+        <div>
+            <div class="flashsale-product-container flex-product-container">
+                <div class="flashsale-products flex-products">
+                    <div class="product-container" *ngFor="let product of products; let i = index" #productContainer>
+                        <ng-container *ngIf="product.category == 'best'">
+                            <div class="product-image">
+                                <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
+                                <div class="product-image-card">
+                                    <div class="image-product-card">
+                                        <img [src]="product.image" [alt]="product.name">
+                                    </div>
+                                    <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
+                                    <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
+                                        <button (click)="decreaseCartQuantity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
+                                        <span [attr.quantity-id]="product.id">{{product.quantity}}</span>
+                                        <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i 
+                                    #heart 
+                                    class="fa-regular fa-heart" 
+                                    [attr.data-id]="product.id"
+                                    (click)="getProduct(productContainer,product)"></i>
+                                </button>
+                            </div>
+                            <div class="product-description">
+                                <div class="product-name"><p>{{product.name}}</p></div>
+                                <div class="product-price">
+                                    <p>&#x20A6;{{product.price}}</p>
+                                    <p>&#x20A6;{{product.old}}</p>
+                                </div>
+                                <div class="product-rating">
+                                    <ul>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                    </ul>
+                                    <p>({{product.review}})</p>
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>

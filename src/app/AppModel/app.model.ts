@@ -7,5 +7,6 @@ export interface PRODUCTS {
     review:number;
     discount:number;
     old:number,
-    quantity:number
+    quantity:number,
+    category:string
 }
