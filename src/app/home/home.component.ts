@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, SimpleChanges, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { PRODUCTS } from '../AppModel/app.model';
 import { HeaderComponent } from '../header/header.component';
@@ -9,9 +9,13 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './home.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
-  constructor(private appService: AppService){}
+  constructor(private appService: AppService){
+    appService.displayAllProducts().subscribe(product => {
+      this.products = product
+    })
+  }
 
   @ViewChildren('productContainer') productContainer! : QueryList<any>
 
@@ -34,9 +38,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.minutes = minute
     this.seconds = second
 
-    this.appService.displayAllProducts().subscribe(product => {
-      this.products = product
-    })
+    // this.appService.displayAllProducts().subscribe(product => {
+    //   this.products = product
+    // })
 
     this.appService.getCategory().subscribe(category =>{
       this.categories = category
@@ -78,26 +82,32 @@ export class HomeComponent implements OnInit, AfterViewInit {
     })
 
     this.appService.getProductCart().subscribe(products => {
-      if(products.length !== 0){
+      if(products){
         products.forEach(product => {
+         if(product){
           let {id} = product
           this.productContainer.forEach(productID => {
             let quantityID = productID.nativeElement.querySelector(`[quantity-id="${id}"]`)
             if(quantityID){
               let attr = quantityID.getAttribute('quantity-id')
               
-              if(attr){
-                console.log(typeof 'Available')
-              } else {
-                console.log('Deleted')
-              }
             }
-            // products.some(item => item.id === quantityID)
           })
+         }
         })
       }
     })
   }
+
+  //NG ON CHANGES
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
+
+  ngOnDestroy(): void {
+    
+  }
+
 
   hideMenu:boolean = false
   displaySideMenu(){
@@ -147,48 +157,35 @@ export class HomeComponent implements OnInit, AfterViewInit {
       quantityBtn?.classList.add('show')
     }
 
+    console.log(product)
+
     //
     this.appService.addProductToCart(product)
   }
 
   //decrease cart quantity
-  decreaseCartQuantity(product:PRODUCTS,productContainer:HTMLDivElement){
+  decreaseCartQuantity(product:PRODUCTS){
 
-    //if quantity === 1, return method
-    if(product.quantity === 1){
-      const cartBtn = productContainer.querySelector('.add-to-cart-btn')
-      const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+    //decrease quantity from cart when clicked
+    this.appService.decreaseQuantity(product)
 
-      //add classlist if value returns true
-      if(cartBtn){
-        cartBtn.classList.remove('hide')
-        quantityBtn?.classList.remove('show')
-      }
+  //     cartBtn.classList.remove('hide')
+  //     quantityBtn?.classList.remove('show')
 
-      //remove product from cart
-      this.appService.getProductCart().subscribe(products => {
-        this.appService.removeProductFromCart(product,products)
-      })
 
-    } else {
-
-      //decrease quantity from cart when clicked
-      this.appService.decreaseQuantity(product)
-
-      //update quantity value when changed
-      this.appService.getProductCart().subscribe(prod => {
-        prod.forEach(productCart => {
-          let {id} = productCart
-          let {quantity} = productCart
-          this.productContainer.forEach(lists => {
-            let quantityValue = lists.nativeElement.querySelector(`[quantity-id="${id}"]`)
-            if(quantityValue){
-              quantityValue.innerHTML = quantity
-            }
-          })
+    //update quantity value when changed
+    this.appService.getProductCart().subscribe(prod => {
+      prod.forEach(productCart => {
+        let {id} = productCart
+        let {quantity} = productCart
+        this.productContainer.forEach(lists => {
+          let quantityValue = lists.nativeElement.querySelector(`[quantity-id="${id}"]`)
+          if(quantityValue){
+            quantityValue.innerHTML = quantity
+          }
         })
       })
-    }
+    })
   }
 
   //increase cart quantity

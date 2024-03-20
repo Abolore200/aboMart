@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { PRODUCTS } from '../AppModel/app.model';
 
@@ -8,7 +8,7 @@ import { PRODUCTS } from '../AppModel/app.model';
   styleUrl: './cart.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class CartComponent implements OnInit, AfterViewInit {
+export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private appService: AppService){}
   @ViewChildren('cartContainer') cartContainer! : QueryList<any>
@@ -16,6 +16,14 @@ export class CartComponent implements OnInit, AfterViewInit {
   cartProducts: PRODUCTS[] = []
   noOfCart:number
   totalAmountOfCart:number
+
+  ngOnDestroy(): void {
+    this.appService.getProductCart().subscribe(products => {
+      products.forEach(product => {
+        console.log(product)
+      })
+    })
+  }
 
   ngOnInit(): void {
     this.appService.getProductCart().subscribe(products => {
@@ -36,20 +44,12 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.cartContainer.forEach(carts => {
-      this.appService.getProductCart().subscribe(products => {
-        products.forEach(product => {
-
-        })
-      })
-    }) 
+    
   }
-
-  quantityNumber:number = 1
 
   //Increase quantity
   increaseQuatity(cart:PRODUCTS){
-    cart.quantity += this.quantityNumber
+    this.appService.increaseQuantity(cart)
     this.appService.getProductCart().subscribe(products => {
 
       //add quantity and price on click
@@ -62,7 +62,7 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   //Decrease qunatity
   decreaseQuantity(cart:PRODUCTS){
-    cart.quantity -= this.quantityNumber
+    this.appService.decreaseQuantity(cart)
     this.appService.getProductCart().subscribe(products => {
 
       //subtract quantity and price on click

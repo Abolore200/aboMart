@@ -116,6 +116,19 @@ export class AppService {
           products.splice(index,1)
         }
       })
+      product.quantity = 1
+    }
+    this.productCartEmit.emit(this.productCart)
+  }
+
+  //remove btn product
+  removeBtnProductFromCart(product:PRODUCTS, products:PRODUCTS[]){
+    if(products.length !== 0){
+      products.forEach((prodID, index) => {
+        if(prodID.id === product.id){
+          products.splice(index,1)
+        }
+      })
     }
     this.productCartEmit.emit(this.productCart)
   }
@@ -126,7 +139,7 @@ export class AppService {
       const item = products.find(item => item.id === product.id)
       if(item){
         item.quantity++
-        product.quantity = item.quantity
+        console.log(item)
       }
     })
   }
@@ -137,7 +150,7 @@ export class AppService {
       const item = products.find(item => item.id === product.id)
       if(item && item.quantity > 1){
         item.quantity--
-        product.quantity = item.quantity
+        console.log(item)
       }
     })
   }
