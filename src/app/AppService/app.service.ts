@@ -139,18 +139,31 @@ export class AppService {
       const item = products.find(item => item.id === product.id)
       if(item){
         item.quantity++
-        console.log(item)
       }
     })
   }
 
   //Decrease Quantity
-  decreaseQuantity(product:PRODUCTS){
+  decreaseQuantity(product:PRODUCTS,productContainer:HTMLDivElement){
     this.getProductCart().subscribe(products => {
       const item = products.find(item => item.id === product.id)
       if(item && item.quantity > 1){
         item.quantity--
-        console.log(item)
+      } else {
+
+        //add classlist to cartbtn and quantity if quantity == 1
+        const cartBtn = productContainer.querySelector('.add-to-cart-btn')
+        const quantityBtn = productContainer.querySelector('.quantity-btn-container')
+
+        //add classlist to cartbtn and quantity btn if it returns true
+        if(cartBtn && quantityBtn){
+          cartBtn.classList.remove('hide')
+          quantityBtn.classList.remove('show')
+        }
+
+        //remove product from cart if quantity == 1
+        this.removeBtnProductFromCart(product,products)
+        
       }
     })
   }

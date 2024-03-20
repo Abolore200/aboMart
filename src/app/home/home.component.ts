@@ -81,22 +81,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
       })
     })
 
-    this.appService.getProductCart().subscribe(products => {
-      if(products){
-        products.forEach(product => {
-         if(product){
-          let {id} = product
-          this.productContainer.forEach(productID => {
-            let quantityID = productID.nativeElement.querySelector(`[quantity-id="${id}"]`)
-            if(quantityID){
-              let attr = quantityID.getAttribute('quantity-id')
+    // this.appService.getProductCart().subscribe(products => {
+    //   if(products){
+    //     products.forEach(product => {
+    //      if(product){
+    //       let {id} = product
+    //       this.productContainer.forEach(productID => {
+    //         let quantityID = productID.nativeElement.querySelector(`[quantity-id="${id}"]`)
+    //         if(quantityID){
+    //           let attr = quantityID.getAttribute('quantity-id')
               
-            }
-          })
-         }
-        })
-      }
-    })
+    //         }
+    //       })
+    //      }
+    //     })
+    //   }
+    // })
   }
 
   //NG ON CHANGES
@@ -152,26 +152,23 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     const quantityBtn = productContainer.querySelector('.quantity-btn-container')
 
     //add classlist to cartbtn and quantity btn if it returns true
-    if(cartBtn){
+    if(cartBtn && quantityBtn){
       cartBtn.classList.add('hide')
-      quantityBtn?.classList.add('show')
+      quantityBtn.classList.add('show')
     }
-
-    console.log(product)
 
     //
     this.appService.addProductToCart(product)
+
+    //emit product name
+    this.appService.getProductName(product.name)
   }
 
   //decrease cart quantity
-  decreaseCartQuantity(product:PRODUCTS){
+  decreaseCartQuantity(product:PRODUCTS,productContainer:HTMLDivElement){
 
     //decrease quantity from cart when clicked
-    this.appService.decreaseQuantity(product)
-
-  //     cartBtn.classList.remove('hide')
-  //     quantityBtn?.classList.remove('show')
-
+    this.appService.decreaseQuantity(product,productContainer)
 
     //update quantity value when changed
     this.appService.getProductCart().subscribe(prod => {

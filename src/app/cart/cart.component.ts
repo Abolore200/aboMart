@@ -20,7 +20,7 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.appService.getProductCart().subscribe(products => {
       products.forEach(product => {
-        console.log(product)
+        
       })
     })
   }
@@ -49,6 +49,8 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
 
   //Increase quantity
   increaseQuatity(cart:PRODUCTS){
+
+    //increase quantity of product
     this.appService.increaseQuantity(cart)
     this.appService.getProductCart().subscribe(products => {
 
@@ -61,10 +63,13 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   //Decrease qunatity
-  decreaseQuantity(cart:PRODUCTS){
-    this.appService.decreaseQuantity(cart)
-    this.appService.getProductCart().subscribe(products => {
+  decreaseQuantity(cart:PRODUCTS,cartContainer:HTMLDivElement){
 
+    //decrease quantity of product
+    this.appService.decreaseQuantity(cart,cartContainer)
+
+    //
+    this.appService.getProductCart().subscribe(products => {
       //subtract quantity and price on click
       this.totalAmountOfCart = products.map(i =>
         i.price * i.quantity
