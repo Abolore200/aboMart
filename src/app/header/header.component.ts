@@ -51,7 +51,9 @@ export class HeaderComponent implements OnInit {
 
   @Output() display = new EventEmitter<boolean>()
 
-  displayMenu(){
+
+  //toggle / display menu category when clicked
+  toggleMenu(){
     if(this.hideMenu === false){
       this.hideMenu = true
       this.display.emit(this.hideMenu)
@@ -61,6 +63,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+
+  //on click, hide menu from screen
   hideNavBar(){
     if(this.removeNavBar.nativeElement.classList.contains('absolute')){
       this.removeNavBar.nativeElement.classList.remove('absolute')
@@ -69,5 +73,12 @@ export class HeaderComponent implements OnInit {
     this.display.emit(this.hideMenu)
   }
 
-  
+
+  //on click, hide menu category from screen
+  removeMenu(){
+    if(this.hideMenu === true){
+      this.hideMenu = false
+      this.display.emit(this.hideMenu)
+    }
+  }
 }

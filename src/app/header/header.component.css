@@ -63,7 +63,7 @@
     .header{padding:10px;}
     .headnote{flex-direction:column;}
     .headnote p{display:block;}
-    .menu-icon-header ul{gap:0 20px;}
+    .menu-icon-header ul{gap:0 10px;}
     .menu-icon-header ul li button i{font-size:1.7rem;}
 }
 

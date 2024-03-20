@@ -23,7 +23,7 @@
     <div class="menu-header">
       <div class="menu-card">
         <div class="menu-logo">
-          <button (click)="displayMenu()"><i class="fa-solid fa-bars"></i></button>
+          <button (click)="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
           <a [routerLink]="''">aboShopify</a>
         </div>
         <div class="menu-headers">
@@ -44,13 +44,13 @@
           <div class="menu-icon-header">
             <ul>
               <li>
-                <button [routerLink]="'wishlist'">
+                <button [routerLink]="'wishlist'" (click)="removeMenu()">
                   <span *ngIf="wishListNumber > 0">{{wishListNumber}}</span>
                   <i class="fa-regular fa-heart" [ngClass]="wishListNumber > 0 ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
                 </button>
               </li>
               <li>
-                <button [routerLink]="'cart'">
+                <button [routerLink]="'cart'" (click)="removeMenu()">
                   <span  *ngIf="cartNumber > 0">{{cartNumber}}</span>
                   <i class="fa-solid fa-cart-shopping"></i>
                 </button>
