@@ -110,11 +110,13 @@ export class AppService {
   }
 
   removeProductFromCart(product:PRODUCTS, products:PRODUCTS[]){
-    products.forEach((prodID, index) => {
-      if(prodID.id === product.id){
-        products.splice(index,1)
-      }
-    })
+    if(products.length !== 0){
+      products.forEach((prodID, index) => {
+        if(prodID.id === product.id){
+          products.splice(index,1)
+        }
+      })
+    }
     this.productCartEmit.emit(this.productCart)
   }
 

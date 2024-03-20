@@ -72,19 +72,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
           let card = prod.nativeElement.querySelector(`[quantity-id="${id}"]`)
           if(card){
             card.innerHTML = quantity
-            
-            let quantityID = Number(card.getAttribute('quantity-id'))
-            if(id !== quantityID){
-              console.log('Not Available')
-            } else {
-              console.log('Available')
-            }
           }
-
-          // let filter = !products.some(item => item.id === card)
-          // console.log(filter)
         })
       })
+    })
+
+    this.appService.getProductCart().subscribe(products => {
+      if(products.length !== 0){
+        products.forEach(product => {
+          let {id} = product
+          this.productContainer.forEach(productID => {
+            let quantityID = productID.nativeElement.querySelector(`[quantity-id="${id}"]`)
+            if(quantityID){
+              let attr = quantityID.getAttribute('quantity-id')
+              
+              if(attr){
+                console.log(typeof 'Available')
+              } else {
+                console.log('Deleted')
+              }
+            }
+            // products.some(item => item.id === quantityID)
+          })
+        })
+      }
     })
   }
 
@@ -136,15 +147,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       quantityBtn?.classList.add('show')
     }
 
-    //WILL COME BACK TO THIS
-    // this.appService.getProductName(product.name)
-
-    //add product to cart
+    //
     this.appService.addProductToCart(product)
   }
-
-  //
-  quantityNumber:number
 
   //decrease cart quantity
   decreaseCartQuantity(product:PRODUCTS,productContainer:HTMLDivElement){
