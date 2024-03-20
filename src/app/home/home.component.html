@@ -78,7 +78,7 @@
         </div>
         <div class="flashsale-product-container flex-product-container">
             <div class="flashsale-products flex-products">
-                <div class="product-container" *ngFor="let product of products; let i = index" #productContainer>
+                <div class="product-container" *ngFor="let product of flashProducts; let i = index" #productContainer>
                     <ng-container *ngIf="product.category == 'flash'">
                         <div class="product-image">
                             <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>
@@ -87,7 +87,7 @@
                                     <img [src]="product.image" [alt]="product.name">
                                 </div>
                                 <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
-                                <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id" *ngIf="product.quantity >= 0">
+                                <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
                                     <button (click)="decreaseCartQuantity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
                                     <span [attr.quantity-id]="product.id">{{ product.quantity }}</span>
                                     <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
@@ -155,7 +155,7 @@
         <div>
             <div class="flashsale-product-container flex-product-container">
                 <div class="flashsale-products flex-products">
-                    <div class="product-container" *ngFor="let product of products; let i = index" #productContainer>
+                    <div class="product-container" *ngFor="let product of bestProducts; let i = index" #productContainer>
                         <ng-container *ngIf="product.category == 'best'">
                             <div class="product-image">
                                 <div class="product-discount" *ngIf="product.discount > 0"><p>-{{product.discount}}%</p></div>

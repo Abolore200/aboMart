@@ -12,9 +12,9 @@ import { HeaderComponent } from '../header/header.component';
 export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
   constructor(private appService: AppService){
-    appService.displayAllProducts().subscribe(product => {
-      this.products = product
-    })
+    // appService.displayAllProducts().subscribe(product => {
+    //   this.products = product
+    // })
   }
 
   @ViewChildren('productContainer') productContainer! : QueryList<any>
@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   minutes:number
   seconds:number
 
-  products:PRODUCTS[] = []
+  flashProducts:PRODUCTS[] = []
+  bestProducts:PRODUCTS[] = []
   categories:{name:string,class:string}[] = []
 
   ngOnInit(): void {
@@ -38,9 +39,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     this.minutes = minute
     this.seconds = second
 
-    // this.appService.displayAllProducts().subscribe(product => {
-    //   this.products = product
-    // })
+    this.appService.displayAllProducts().subscribe(product => {
+      this.flashProducts = product.filter(product => product.category === 'flash')
+      this.bestProducts = product.filter(product => product.category === 'best')
+    })
 
     this.appService.getCategory().subscribe(category =>{
       this.categories = category
@@ -80,23 +82,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
         })
       })
     })
-
-    // this.appService.getProductCart().subscribe(products => {
-    //   if(products){
-    //     products.forEach(product => {
-    //      if(product){
-    //       let {id} = product
-    //       this.productContainer.forEach(productID => {
-    //         let quantityID = productID.nativeElement.querySelector(`[quantity-id="${id}"]`)
-    //         if(quantityID){
-    //           let attr = quantityID.getAttribute('quantity-id')
-              
-    //         }
-    //       })
-    //      }
-    //     })
-    //   }
-    // })
   }
 
   //NG ON CHANGES
