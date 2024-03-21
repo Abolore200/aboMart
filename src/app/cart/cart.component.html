@@ -24,8 +24,8 @@
                                     <p>{{cart.name}}</p>
                                 </div>
                                 <div class="cart-price">
-                                    <p>&#x20A6;{{cart.price}}</p>
-                                    <p>&#x20A6;{{cart.old}}</p>
+                                    <p [ngStyle]="{textDecoration:cart.price ? 'none' : ''}">&#x20A6;{{cart.price}}</p>
+                                    <p *ngIf="cart.old > 0">&#x20A6;{{cart.old}}</p>
                                 </div>
                                 <div class="cart-rating">
                                     <ul>

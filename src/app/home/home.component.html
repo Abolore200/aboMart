@@ -45,13 +45,13 @@
             </div>
         </div>
     </div>
-    <div class="flashsale-container">
-        <div class="today-container">
-            <div class="today-box"></div>
+    <div class="flashsale-container product-flex-container">
+        <div class="today-container product-head">
+            <div class="today-box product-box"></div>
             <span>Today's</span>
         </div>
         <div class="flashsale">
-            <div class="flashsale-header">
+            <div class="flashsale-header product-header">
                 <span>Flash Sales</span>
                 <div class="time-countdown">
                     <div>
@@ -123,12 +123,12 @@
             </div>
         </div>
     </div>
-    <div class="category-container">
-        <div class="category-head">
-            <div class="category-box"></div>
+    <div class="category-container product-flex-container">
+        <div class="category-head product-head">
+            <div class="category-box product-box"></div>
             <span>Categories</span>
         </div>
-        <div class="browse-category">
+        <div class="browse-category product-header">
             <span>Browse By Category</span>
         </div>
         <div class="category-flex">
@@ -144,12 +144,12 @@
             </ul>
         </div>
     </div>
-    <div class="selling-products-container">
-        <div class="selling-head">
-            <div class="selling-box"></div>
+    <div class="selling-products-container product-flex-container">
+        <div class="selling-head product-head">
+            <div class="selling-box product-box"></div>
             <span>This Month</span>
         </div>
-        <div class="selling-product">
+        <div class="selling-product product-header">
             <span>Best Selling Products</span>
         </div>
         <div>
@@ -191,6 +191,63 @@
                                         <li><i class="fa-solid fa-star"></i></li>
                                         <li><i class="fa-solid fa-star"></i></li>
                                         <li><i class="fa-solid fa-star"></i></li>
+                                    </ul>
+                                    <p>({{product.review}})</p>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="explore-products-container product-flex-container">
+        <div class="explore-head product-head">
+            <div class="explore-box product-box"></div>
+            <span>Our Products</span>
+        </div>
+        <div class="explore-product product-header">
+            <span>Explore Our Products</span>
+        </div>
+        <div>
+            <div class="flashsale-product-container flex-product-container">
+                <div class="flashsale-products flex-products">
+                    <div class="product-container" *ngFor="let product of exploreProducts; let i = index" #productContainer>
+                        <ng-container *ngIf="product.category == 'explore'">
+                            <div class="product-image">
+                                <div class="product-discount" [ngStyle]="{backgroundColor:product.discount > 0 ? '#00ff66' : '',fontWeight:product.discount > 0 ? '500' : ''}" *ngIf="product.discount > 0"><p>NEW</p></div>
+                                <div class="product-image-card">
+                                    <div class="image-product-card">
+                                        <img [src]="product.image" [alt]="product.name">
+                                    </div>
+                                    <button class="add-to-cart-btn" (click)="addToCart(productContainer,product)">Add To Cart</button>
+                                    <div class="quantity-btn-container" #quantity [attr.cart-id]="product.id">
+                                        <button (click)="decreaseCartQuantity(product,productContainer)"><i class="fa-solid fa-minus"></i></button>
+                                        <span [attr.quantity-id]="product.id">{{product.quantity}}</span>
+                                        <button (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <button class="wishlist-btn">
+                                    <i 
+                                    #heart 
+                                    class="fa-regular fa-heart" 
+                                    [attr.data-id]="product.id"
+                                    (click)="getProduct(productContainer,product)"></i>
+                                </button>
+                            </div>
+                            <div class="product-description">
+                                <div class="product-name"><p>{{product.name}}</p></div>
+                                <div class="product-price">
+                                    <p [ngStyle]="{textDecoration:product.price ? 'none' : '',color:product.price ? '#db4444' : '#db4444'}">&#x20A6;{{product.price}}</p>
+                                    <p *ngIf="product.old > 0">&#x20A6;{{product.old}}</p>
+                                </div>
+                                <div class="product-rating">
+                                    <ul>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 30 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 50 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 70 ? '#ffad33' : '#bfbfbf'}"></i></li>
                                     </ul>
                                     <p>({{product.review}})</p>
                                 </div>

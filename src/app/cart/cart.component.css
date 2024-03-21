@@ -55,7 +55,6 @@
 .input-coupon :is(input,button){font-family:'Inter';border:none;font-size:.9rem;}
 .input-coupon button{background-color:#db4444;color:#fff;font-weight:500;padding:15px 30px;border-radius:0 4px 4px 0;font-size:.9rem;}
 .input-coupon input{width:100%;border-radius:4px 0 0 4px;background-color:#f5f5f5;color:#808080;padding:15px 10px;}
-
 @media screen and (max-width:768px) {
     .cart-product-container{flex-direction:column;gap:20px 0;}
     .cart-total-container{width:100%;}

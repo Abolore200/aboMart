@@ -21,7 +21,17 @@ export class AppService {
     {id:105,name:'The North Coat',price:260,rating:5,image:'assets/images/north.svg',review:65,discount:0,old:350,quantity:1,category:'best'},
     {id:106,name:'Gucci Duffel Bag',price:960,rating:5,image:'assets/images/gucci.svg',review:65,discount:0,old:1190,quantity:1,category:'best'},
     {id:107,name:'RGB Liquid CPU Cooler',price:160,rating:5,image:'assets/images/rgbcooler.svg',review:65,discount:0,old:170,quantity:1,category:'best'},
-    {id:108,name:'Small Bookshelf',price:360,rating:5,image:'assets/images/bookshelf.svg',review:65,discount:0,old:170,quantity:1,category:'best'}
+    {id:108,name:'Small Bookshelf',price:360,rating:5,image:'assets/images/bookshelf.svg',review:65,discount:0,old:170,quantity:1,category:'best'},
+
+    {id:109,name:'Breed Dry Dog Food',price:100,rating:3,image:'assets/images/dryfood.svg',review:35,discount:0,old:0,quantity:1,category:'explore'},
+    {id:110,name:'CANON EOS DSLR Camera',price:360,rating:4,image:'assets/images/camera.svg',review:95,discount:0,old:0,quantity:1,category:'explore'},
+    {id:111,name:'ASUS FHD Gaming Laptop',price:700,rating:5,image:'assets/images/laptop.svg',review:325,discount:0,old:0,quantity:1,category:'explore'},
+    {id:112,name:'Curology Product Set',price:145,rating:4,image:'assets/images/curology.svg',review:45,discount:0,old:0,quantity:1,category:'explore'},
+    {id:113,name:'Kids Electric Car',price:960,rating:5,image:'assets/images/mercedes.svg',review:65,discount:1,old:0,quantity:1,category:'explore'},
+    {id:114,name:'Jr. Zoom Soccer Cleats',price:1160,rating:5,image:'assets/images/boots.svg',review:35,discount:0,old:0,quantity:1,category:'explore'},
+    {id:115,name:'GP11 Shooter USB Gamepad',price:660,rating:4,image:'assets/images/gp11.svg',review:55,discount:1,old:0,quantity:1,category:'explore'},
+    {id:116,name:'Quilted Satin Jacket',price:660,rating:4,image:'assets/images/jacket.svg',review:55,discount:0,old:0,quantity:1,category:'explore'},
+    
   ]
 
   displayAllProducts() :Observable<PRODUCTS[]>{

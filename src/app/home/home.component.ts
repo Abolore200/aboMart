@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
   flashProducts:PRODUCTS[] = []
   bestProducts:PRODUCTS[] = []
+  exploreProducts:PRODUCTS[] = []
   categories:{name:string,class:string}[] = []
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     this.appService.displayAllProducts().subscribe(product => {
       this.flashProducts = product.filter(product => product.category === 'flash')
       this.bestProducts = product.filter(product => product.category === 'best')
+      this.exploreProducts = product.filter(product => product.category === 'explore')
     })
 
     this.appService.getCategory().subscribe(category =>{
