@@ -129,7 +129,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   }
 
   //add product to wishlist
-  getProduct(productContainer:HTMLDivElement,product:PRODUCTS){
+  addProductToWishList(productContainer:HTMLDivElement,product:PRODUCTS){
     let heart = productContainer.querySelector('.fa-regular')
 
     //if heart is true, toggle 'fa-solid'

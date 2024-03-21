@@ -14,6 +14,7 @@ export class WishlistComponent implements OnInit {
 
   noOfWishlist:number
   products: PRODUCTS[] = []
+  forYouProduct:PRODUCTS[] = []
 
   ngOnInit(): void {
     this.appService.getWishListProducts().subscribe(wishlists => {
@@ -25,6 +26,30 @@ export class WishlistComponent implements OnInit {
     })
 
     this.noOfWishlist = this.appService.wishListCart.length
+
+    this.appService.displayAllProducts().subscribe(product => {
+      let productArray = [...product]
+      this.shuffledProducts(productArray)
+    })
+  }
+
+  //shuffle array function
+  shuffledProducts(product:PRODUCTS[]){
+    let current = product.length, value, index;
+
+    // While there remain elements to shuffle...
+    while (current !== 0) {
+      // Pick a remaining element...
+      index = Math.floor(Math.random() * current);
+      current--;
+
+      // And swap it with the current element.
+      value = product[current];
+      product[current] = product[index];
+      product[index] = value;
+    }
+
+    this.forYouProduct = product
   }
 
   //remove product from wishlist

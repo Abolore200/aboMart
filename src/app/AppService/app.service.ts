@@ -24,9 +24,9 @@ export class AppService {
     {id:108,name:'Small Bookshelf',price:360,rating:5,image:'assets/images/bookshelf.svg',review:65,discount:0,old:170,quantity:1,category:'best'},
 
     {id:109,name:'Breed Dry Dog Food',price:100,rating:3,image:'assets/images/dryfood.svg',review:35,discount:0,old:0,quantity:1,category:'explore'},
-    {id:110,name:'CANON EOS DSLR Camera',price:360,rating:4,image:'assets/images/camera.svg',review:95,discount:0,old:0,quantity:1,category:'explore'},
+    {id:110,name:'CANON EOS DSLR Camera',price:360,rating:4,image:'assets/images/camera.svg',review:95,discount:1,old:0,quantity:1,category:'explore'},
     {id:111,name:'ASUS FHD Gaming Laptop',price:700,rating:5,image:'assets/images/laptop.svg',review:325,discount:0,old:0,quantity:1,category:'explore'},
-    {id:112,name:'Curology Product Set',price:145,rating:4,image:'assets/images/curology.svg',review:45,discount:0,old:0,quantity:1,category:'explore'},
+    {id:112,name:'Curology Product Set',price:145,rating:4,image:'assets/images/curology.svg',review:45,discount:1,old:0,quantity:1,category:'explore'},
     {id:113,name:'Kids Electric Car',price:960,rating:5,image:'assets/images/mercedes.svg',review:65,discount:1,old:0,quantity:1,category:'explore'},
     {id:114,name:'Jr. Zoom Soccer Cleats',price:1160,rating:5,image:'assets/images/boots.svg',review:35,discount:0,old:0,quantity:1,category:'explore'},
     {id:115,name:'GP11 Shooter USB Gamepad',price:660,rating:4,image:'assets/images/gp11.svg',review:55,discount:1,old:0,quantity:1,category:'explore'},

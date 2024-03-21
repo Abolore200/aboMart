@@ -41,5 +41,45 @@
                 </div>
             </div>
         </div>
+        <div class="for-you-products-container product-flex-container">
+            <div class="for-you-head product-head">
+                <div class="for-you-box product-box"></div>
+                <span>Just for You</span>
+            </div>
+            <div class="flashsale-product-container">
+                <div class="flashsale-products">
+                    <div class="product-container" *ngFor="let product of forYouProduct; let i = index" #productContainer>
+                        <ng-container *ngIf="i < 4">
+                            <div class="product-image">
+                                <div class="product-discount" *ngIf="product.discount > 2"><p>-{{product.discount}}%</p></div>
+                                <div class="product-discount" [ngStyle]="{backgroundColor:product.discount == 1 ? '#00ff66' : '',fontWeight:product.discount == 1 ? '500' : ''}" *ngIf="product.discount == 1"><p>NEW</p></div>
+                                <div class="product-image-card">
+                                    <div class="image-product-card">
+                                        <img [src]="product.image" [alt]="product.name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-description">
+                                <div class="product-name"><p>{{product.name}}</p></div>
+                                <div class="product-price">
+                                    <p>${{product.price}}</p>
+                                    <p>${{product.old}}</p>
+                                </div>
+                                <div class="product-rating">
+                                    <ul>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 30 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 50 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 70 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    </ul>
+                                    <p>({{product.review}})</p>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
