@@ -44,11 +44,34 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
       this.flashProducts = product.filter(product => product.category === 'flash')
       this.bestProducts = product.filter(product => product.category === 'best')
       this.exploreProducts = product.filter(product => product.category === 'explore')
+
+      //shuffle / randomise the array
+      let productArray = [...product]
+      this.shuffledProducts(productArray)
     })
+
 
     this.appService.getCategory().subscribe(category =>{
       this.categories = category
     })
+  }
+
+
+  //shuffle array function
+  shuffledProducts(product:PRODUCTS[]){
+    let current = product.length, value, index;
+
+    // While there remain elements to shuffle...
+    while (current !== 0) {
+      // Pick a remaining element...
+      index = Math.floor(Math.random() * current);
+      current--;
+
+      // And swap it with the current element.
+      value = product[current];
+      product[current] = product[index];
+      product[index] = value;
+    }
   }
 
   ngAfterViewInit(): void {
