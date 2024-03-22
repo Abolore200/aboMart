@@ -1,4 +1,4 @@
-<div class="app-container" [appApp]="{fixed:hideMenu}">
+<div class="app-container" [ngClass]="hideMenu ? 'fixed' : ''">
   <app-header (display)="display($event)"></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

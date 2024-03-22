@@ -1,6 +1,6 @@
-.fixed-container{left:0;right:0;background-color:#db4444;z-index:1;}
+.fixed-container{left:0;right:0;background-color:#db4444;z-index:2;}
 .fixed-container{position:fixed;width:100%;}
-.fixed-body{padding:20px 0;position:relative;color:#fff;}
+.fixed-body{padding:20px 0;position:relative;color:#fff;width:100%;}
 .fixed-body p{text-align:center;font-size:1rem;font-family:'Inter';}
 .fixed-body p span{font-weight:600;}
 .header-container.padding{padding-top:50px;}
