@@ -18,7 +18,7 @@
                             autocomplete="off" 
                             type="text" 
                             placeholder="Name" 
-                            id="name" 
+                            name="name" 
                             #blurName
                             (blur)="formBlurName()"
                             [(ngModel)]="nameInput" 
@@ -31,7 +31,7 @@
                             autocomplete="off" 
                             type="text" 
                             placeholder="Email or Phone Number" 
-                            id="email"
+                            name="email"
                             #blurEmail
                             (blur)="formBlurEmail()"
                             [(ngModel)]="emailInput" 
@@ -49,7 +49,7 @@
                             type="password" 
                             #password 
                             placeholder="Password" 
-                            id="password"
+                            name="password"
                             #blurPassword
                             (blur)="formBlurPassword()"
                             [(ngModel)]="passwordInput" 
