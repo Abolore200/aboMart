@@ -15,7 +15,7 @@
 .cart-card-image{width:100px;height:100px;}
 .cart-card-image img{width:100%;aspect-ratio:1;}
 .cart-description{display:flex;justify-content:space-between;width:100%;align-items:center;}
-.cart-name-card{display:flex;flex-direction:column;gap:3px 0;}
+.cart-name-card{display:flex;flex-direction:column;gap:3px 0;cursor:pointer;}
 .cart-name p{font-weight:500;font-size:1.15rem;}
 .cart-price{display:flex;gap:0 10px;}
 .cart-price p{font-size:.9rem;color:#000;}

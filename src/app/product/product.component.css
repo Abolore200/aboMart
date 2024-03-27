@@ -54,3 +54,13 @@
 .quantity-btn-container button:focus i{color:#fff;}
 .buy-now-btn.hide{display:none;}
 .quantity-btn-container.show{display:flex;}
+.delivery-return-container{margin:30px 0 0;}
+.delivery-return-box{border-radius:4px;border:1px solid #808080;width:fit-content;}
+.delivery-return-box :is(.delivery-box,.return-box){display:flex;align-items:center;padding:20px 15px;gap:0 15px;}
+.delivery-box{border-bottom:1px solid #808080;}
+.delivery-box span i,.return-box span i{font-size:1.5rem;}
+.delivery-note,.return-note{display:flex;flex-direction:column;gap:5px 0;cursor:pointer;}
+.delivery-note p,.return-note p{font-family:'Inter';}
+.delivery-note p:first-child,.return-note p:first-child{font-size:1rem;font-weight:500;}
+.delivery-note p:last-child,.return-note p:last-child{font-size:.8rem;text-decoration:underline;font-family:'Raleway';font-weight:500;}
+.return-note p:last-child{text-decoration:none;}

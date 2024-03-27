@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
     this.productContainer.forEach(prod => {
 
-      //wishlist icon should keep class if available in array
+      //wishlist, icon should keep class if available in array
       this.appService.getWishListProducts().subscribe(products => {
         products.forEach(product => {
           let {id} = product
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
         })
       })
 
-      //cart add to cart btn should keep class if available in array
+      //cart, quantity btn should keep class if available in array
       this.appService.getProductCart().subscribe(products => {
         products.forEach(product => {
           let {id} = product
@@ -127,10 +127,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
   //add product to wishlist
   addProductToWishList(productContainer:HTMLDivElement,product:PRODUCTS){
-    let heart = productContainer.querySelector('.fa-regular')
+    let heart = productContainer.querySelector('.fa-heart')
 
     //if heart is true, toggle 'fa-solid'
-    if(heart?.classList.contains('fa-regular')){
+    if(heart?.classList.contains('fa-heart')){
       heart.classList.toggle('fa-solid')
 
       //if 'fa-solid' return true, add product to pushProduct()

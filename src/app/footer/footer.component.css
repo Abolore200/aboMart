@@ -23,9 +23,17 @@
 .social-flex ul{display:flex;gap:0 20px;}
 .social-flex ul li{list-style:none;}
 .social-flex ul li i{font-size:1.2rem;}
-.copyright-head{padding:30px 0;border-top:1px solid #3d3d3d;}
+.copyright-head{padding:30px 0 0;border-top:1px solid #3d3d3d;}
 .copyright-head p{text-align:center;color:#3d3d3d;}
 .download-qrcode{margin-top:10px;}
+.developer-contact{padding:10px 0 30px;}
+.developer-contact *{color:#fff;}
+.developer-contact{display:flex;align-items:center;justify-content:center;gap:0 10px;}
+.developer-contact p{text-align:center;}
+.developer-contact ul{display:flex;align-items:center;gap:0 15px;}
+.developer-contact ul li{list-style:none;}
+.developer-contact ul li a{display:flex;}
+.developer-contact ul li a i{font-size:1.5rem;color:#fff;}
 
 @media screen and (max-width:768px) {
     .footer-flex{flex-direction:column;flex-wrap:wrap;}

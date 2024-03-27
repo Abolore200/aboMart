@@ -46,8 +46,10 @@ export class ProductComponent implements OnInit, AfterViewInit {
           let {id} = product
           let {quantity} = product
           let quantityBtn = prod.nativeElement.querySelector(`[cart-id="${id}"]`)
-          if(quantityBtn){
+          let buyBtn = prod.nativeElement.querySelector('.buy-now-btn')
+          if(quantityBtn && buyBtn){
             quantityBtn.classList.add('show')
+            buyBtn.classList.add('hide')
           }
 
           let card = prod.nativeElement.querySelector(`[quantity-id="${id}"]`)
@@ -62,10 +64,10 @@ export class ProductComponent implements OnInit, AfterViewInit {
 
   //add product to wishlist
   addProductToWishList(productContainer:HTMLDivElement,product:PRODUCTS){
-    let heart = productContainer.querySelector('.fa-regular')
+    let heart = productContainer.querySelector('.fa-heart')
 
     //if heart is true, toggle 'fa-solid'
-    if(heart?.classList.contains('fa-regular')){
+    if(heart?.classList.contains('fa-heart')){
       heart.classList.toggle('fa-solid')
 
       //if 'fa-solid' return true, add product to pushProduct()
