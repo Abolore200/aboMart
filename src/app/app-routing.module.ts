@@ -8,7 +8,8 @@ import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
+  // {path:'',redirectTo:'',pathMatch:'full'},
+  {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
