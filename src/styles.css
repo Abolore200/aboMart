@@ -3,3 +3,4 @@
 body{font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
 body,html{font-family:'Poppins';scroll-behavior:smooth;}
 * a{text-decoration:none;}
+*{scroll-behavior:smooth;}
