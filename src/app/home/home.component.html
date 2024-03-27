@@ -101,7 +101,7 @@
                                 (click)="addProductToWishList(productContainer,product)"></i>
                             </button>
                         </div>
-                        <div class="product-description">
+                        <div class="product-description" [routerLink]="['/product/', product.id]">
                             <div class="product-name"><p>{{product.name}}</p></div>
                             <div class="product-price">
                                 <p>&#x20A6;{{product.price}}</p>
@@ -111,9 +111,9 @@
                                 <ul>
                                     <li><i class="fa-solid fa-star"></i></li>
                                     <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
-                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 30 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 50 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 70 ? '#ffad33' : '#bfbfbf'}"></i></li>
                                 </ul>
                                 <p>({{product.review}})</p>
                             </div>
@@ -178,7 +178,7 @@
                                     (click)="addProductToWishList(productContainer,product)"></i>
                                 </button>
                             </div>
-                            <div class="product-description">
+                            <div class="product-description" [routerLink]="['/product/', product.id]">
                                 <div class="product-name"><p>{{product.name}}</p></div>
                                 <div class="product-price">
                                     <p>&#x20A6;{{product.price}}</p>
@@ -188,9 +188,9 @@
                                     <ul>
                                         <li><i class="fa-solid fa-star"></i></li>
                                         <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
-                                        <li><i class="fa-solid fa-star"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 30 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 50 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                        <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 70 ? '#ffad33' : '#bfbfbf'}"></i></li>
                                     </ul>
                                     <p>({{product.review}})</p>
                                 </div>
@@ -235,7 +235,7 @@
                                     (click)="addProductToWishList(productContainer,product)"></i>
                                 </button>
                             </div>
-                            <div class="product-description">
+                            <div class="product-description" [routerLink]="['/product/', product.id]">
                                 <div class="product-name"><p>{{product.name}}</p></div>
                                 <div class="product-price">
                                     <p [ngStyle]="{textDecoration:product.price ? 'none' : '',color:product.price ? '#db4444' : '#db4444'}">&#x20A6;{{product.price}}</p>

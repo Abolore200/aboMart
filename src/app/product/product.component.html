@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="product-container">
+        <div class="product-header-name">
+            <p><span>Product&nbsp;/</span>&nbsp;{{product.name}}</p>
+        </div>
+        <div class="main-product">
+            <div class="product-flex">
+                <div class="product-image-container">
+                    <div class="product-container-image">
+                        <div class="side-image-product">
+                            <ul>
+                                <li><img [src]="product.image" [alt]="product.name"></li>
+                                <li><img [src]="product.image" [alt]="product.name"></li>
+                                <li><img [src]="product.image" [alt]="product.name"></li>
+                                <li><img [src]="product.image" [alt]="product.name"></li>
+                            </ul>
+                        </div>
+                        <div class="product-image">
+                            <img [src]="product.image" [alt]="product.name">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-description">
+                    <div class="product-desc">
+                        <div class="product-name">
+                            <p>{{product.name}}</p>
+                        </div>
+                        <div class="product-review">
+                            <div class="product-rating">
+                                <ul>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 30 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 50 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                    <li><i class="fa-solid fa-star" [ngStyle]="{color: product.review > 70 ? '#ffad33' : '#bfbfbf'}"></i></li>
+                                </ul>
+                            </div>
+                            <p class="product-review-note">({{product.review}} Reviews) &nbsp; |</p>
+                            <p class="product-stock" *ngIf="product.review > 70"><span [ngStyle]="{color: product.review > 70 ? '#66ffa3' : '#db4444'}">In Stock</span></p>
+                            <p class="product-stock" *ngIf="product.review < 70"><span [ngStyle]="{color: product.review < 70 ? '#db4444' : '#db4444'}">Out Of Stock</span></p>
+                        </div>
+                        <div class="product-price">
+                            <p>&#x20A6;{{product.price}}.00</p>
+                        </div>
+                        <div class="product-description-note">
+                            <p>{{product.name}} Lorem ipsum dolor sit amet, 
+                                consectetur adipisicing elit. Repellendus, 
+                                voluptas! Voluptatem veritatis atque sint 
+                                commodi maiores. Sapiente quibusdam vitae 
+                                incidunt illum mollitia fuga impedit hic.</p>
+                        </div>
+                    </div>    
+                    <div class="color-and-sizes-container">
+                        <div class="color-container">
+                            <p>Colours:
+                                <span>
+                                    <input name="color" [(ngModel)]="productColor" class="colorRadioBtn" type="radio" value="white" id="white">
+                                    <label class="colorBtn" for="white"></label>
+                                </span>
+                                <span>
+                                    <input  name="color" [(ngModel)]="productColor" class="colorRadioBtn" type="radio" value="red" id="red">
+                                    <label class="colorBtn" for="red"></label>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="sizes-container">
+                            <p>Size:
+                                <span>
+                                    <input name="size" [(ngModel)]="productSize" class="sizeRadioBtn" type="radio" value="x-small" id="x-small">
+                                    <label class="sizeBtn" for="x-small">XS</label>
+                                </span>
+                                <span>
+                                    <input name="size" [(ngModel)]="productSize" class="sizeRadioBtn" type="radio" value="small" id="small">
+                                    <label class="sizeBtn" for="small">S</label>
+                                </span>
+                                <span>
+                                    <input name="size" [(ngModel)]="productSize" class="sizeRadioBtn" type="radio" value="medium" id="medium">
+                                    <label class="sizeBtn" for="medium">M</label>
+                                </span>
+                                <span>
+                                    <input name="size" [(ngModel)]="productSize" class="sizeRadioBtn" type="radio" value="large" id="large">
+                                    <label class="sizeBtn" for="large">L</label>
+                                </span>
+                                <span>
+                                    <input name="size" [(ngModel)]="productSize" class="sizeRadioBtn" type="radio" value="x-large" id="x-large">
+                                    <label class="sizeBtn" for="x-large">XL</label>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

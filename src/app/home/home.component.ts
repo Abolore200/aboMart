@@ -152,8 +152,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   }
 
   //display product
-  displayProduct(product:PRODUCTS){
-
+  displayProduct(product:HTMLDivElement){
+    console.log(product)
   }
 
   //add product to cart

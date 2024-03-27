@@ -8,5 +8,6 @@ export interface PRODUCTS {
     discount:number;
     old:number,
     quantity:number,
-    category:string
+    category:string,
+    description?:string
 }

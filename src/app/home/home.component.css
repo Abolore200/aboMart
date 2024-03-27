@@ -64,7 +64,7 @@
 .product-discount{position:absolute;top:7%;left:7%;z-index:1;}
 .product-discount{background-color:#db4444;padding:4px 14px;border-radius:4px;display:flex;align-items:center;justify-content:center;}
 .product-discount p{text-align:center;color:#fff;font-size:.9rem;}
-.product-description{display:flex;flex-direction:column;gap:5px 0;margin-top:15px;}
+.product-description{display:flex;flex-direction:column;gap:5px 0;margin-top:15px;cursor:pointer;}
 .product-name p{font-weight:600;text-transform:capitalize;font-size:1rem;}
 .product-price{display:flex;align-items:center;gap:0 10px;}
 .product-price p{font-size:.8rem;}
@@ -74,7 +74,7 @@
 .product-rating ul{display:flex;gap:0 5px;align-items:center;}
 .product-rating ul li{list-style:none;}
 .product-rating ul li i{color:#ffad33;font-size:1rem;}
-.product-image-card{position:relative;}
+.product-image-card{position:relative;overflow-y:hidden;}
 .product-image-card:hover .add-to-cart-btn{visibility:visible;}
 .add-to-cart-btn{position:absolute;bottom:0;border:none;cursor:pointer;}
 .category-flex{margin:50px 0 0;}
@@ -96,7 +96,7 @@
 .product-image-card:hover .add-to-cart-btn{display:block;opacity:1;}
 .add-to-cart-btn{animation:animatebtn .2s ease-in-out forwards;}
 @keyframes animatebtn {
-    0%{bottom:-5px;}
+    0%{bottom:-50px;}
     100%{bottom:0px;}
 }
 @media screen and (max-width:768px){
