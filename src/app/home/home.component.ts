@@ -12,9 +12,7 @@ import { HeaderComponent } from '../header/header.component';
 export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
   constructor(private appService: AppService){
-    // appService.displayAllProducts().subscribe(product => {
-    //   this.products = product
-    // })
+    
   }
 
   @ViewChildren('productContainer') productContainer! : QueryList<any>
@@ -76,10 +74,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
   ngAfterViewInit(): void {
 
-    //icon should keep class if available in array
     this.productContainer.forEach(prod => {
 
-      //wishlist
+      //wishlist icon should keep class if available in array
       this.appService.getWishListProducts().subscribe(products => {
         products.forEach(product => {
           let {id} = product
@@ -90,7 +87,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
         })
       })
 
-      //cart
+      //cart add to cart btn should keep class if available in array
       this.appService.getProductCart().subscribe(products => {
         products.forEach(product => {
           let {id} = product

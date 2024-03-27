@@ -4,7 +4,7 @@
             <p><span>Product&nbsp;/</span>&nbsp;{{product.name}}</p>
         </div>
         <div class="main-product">
-            <div class="product-flex">
+            <div class="product-flex" #productContainer>
                 <div class="product-image-container">
                     <div class="product-container-image">
                         <div class="side-image-product">
@@ -86,6 +86,29 @@
                                     <label class="sizeBtn" for="x-large">XL</label>
                                 </span>
                             </p>
+                        </div>
+                    </div>
+                    <div class="buy-now-container">
+                        <div class="buy-now-flex">
+                            <div class="buy-now">
+                                <button type="button" class="buy-now-btn" (click)="addToCart(productContainer,product)">Buy Now</button>
+                                <div class="quantity-btn-container" [attr.cart-id]="product.id">
+                                    <button 
+                                    type="button" 
+                                    (click)="decreaseCartQuantity(product,productContainer)">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span [attr.quantity-id]="product.id">{{product.quantity}}</span>
+                                    <button type="button" (click)="increaseCartQuantity(product)"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div class="add-to-wishlist">
+                                <button type="button">
+                                    <i class="fa-regular fa-heart"
+                                    [attr.data-id]="product.id"
+                                    (click)="addProductToWishList(productContainer,product)"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

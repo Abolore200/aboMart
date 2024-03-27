@@ -163,11 +163,17 @@ export class AppService {
 
         //add classlist to cartbtn and quantity if quantity == 1
         const cartBtn = productContainer.querySelector('.add-to-cart-btn')
+        const buyBtn = productContainer.querySelector('.buy-now-btn')
         const quantityBtn = productContainer.querySelector('.quantity-btn-container')
 
         //add classlist to cartbtn and quantity btn if it returns true
         if(cartBtn && quantityBtn){
           cartBtn.classList.remove('hide')
+          quantityBtn.classList.remove('show')
+        }
+
+        if(buyBtn && quantityBtn){
+          buyBtn.classList.remove('hide')
           quantityBtn.classList.remove('show')
         }
 
