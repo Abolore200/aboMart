@@ -95,6 +95,26 @@
 .add-to-cart-btn{display:none;opacity:0;}
 .product-image-card:hover .add-to-cart-btn{display:block;opacity:1;}
 .add-to-cart-btn{animation:animatebtn .2s ease-in-out forwards;}
+.featured-flex{margin:50px 0 0;}
+.featured-flex{display:grid;gap:10px;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,250px);}
+.featured-box-flex{border-radius:4px;}
+.featured-box-1{grid-column:span 2;grid-row:span 2;}
+.featured-box-2{grid-column:span 2;grid-row:span 1}
+.featured-box-3{grid-column:span 1;grid-row:span 1}
+.featured-box-4{grid-column:span 1;grid-row:span 1}
+.bg-featured{background-color:#000;background-repeat:no-repeat;background-size:auto;background-position:center;background-clip:content-box;border-radius:4px;}
+.bg-featured{display:flex;align-items:start;flex-direction:column;justify-content:end;}
+.bg-image-box-1{aspect-ratio:1;width:100%;height:100%;background-image:url("/assets/images/ps5.svg");}
+.bg-image-box-2{aspect-ratio:1;background-color:#0e0e0e;width:100%;height:100%;background-image:url("/assets/images/hat.svg");background-position:right;background-size:contain;}
+.bg-image-box-3{aspect-ratio:1;background-color:#1e1e1e;width:100%;height:100%;background-image:url("/assets/images/speaker.svg");}
+.bg-image-box-4{aspect-ratio:1;background-color:#2a2a2a;width:100%;height:100%;background-image:url("/assets/images/perfume.svg");}
+.bg-image-flex{display:flex;flex-direction:column;gap:6px 0;padding:25px;}
+.bg-image-flex :is(p,a){color:#fff;}
+.bg-image-flex p:first-child{font-weight:600;font-family:'Inter';font-size:1.1rem;}
+.bg-image-flex p:nth-child(2){font-size:.8rem;font-weight:400;}
+.bg-image-flex a{text-decoration:underline;font-weight:500;width:fit-content;}
+
+
 @keyframes animatebtn {
     0%{bottom:-50px;}
     100%{bottom:0px;}
