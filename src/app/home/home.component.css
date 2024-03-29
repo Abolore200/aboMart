@@ -102,17 +102,27 @@
 .featured-box-2{grid-column:span 2;grid-row:span 1}
 .featured-box-3{grid-column:span 1;grid-row:span 1}
 .featured-box-4{grid-column:span 1;grid-row:span 1}
-.bg-featured{background-color:#000;background-repeat:no-repeat;background-size:auto;background-position:center;background-clip:content-box;border-radius:4px;}
+.bg-featured{background-color:#000;background-repeat:no-repeat;background-size:auto;background-position:center;border-radius:4px;}
 .bg-featured{display:flex;align-items:start;flex-direction:column;justify-content:end;}
-.bg-image-box-1{aspect-ratio:1;width:100%;height:100%;background-image:url("/assets/images/ps5.svg");}
-.bg-image-box-2{aspect-ratio:1;background-color:#0e0e0e;width:100%;height:100%;background-image:url("/assets/images/hat.svg");background-position:right;background-size:contain;}
-.bg-image-box-3{aspect-ratio:1;background-color:#1e1e1e;width:100%;height:100%;background-image:url("/assets/images/speaker.svg");}
-.bg-image-box-4{aspect-ratio:1;background-color:#2a2a2a;width:100%;height:100%;background-image:url("/assets/images/perfume.svg");}
+.bg-featured{width:100%;height:100%;aspect-ratio:1;}
+.bg-image-box-1{background-image:url("/assets/images/ps5.svg");}
+.bg-image-box-2{background-color:#0e0e0e;background-image:url("/assets/images/hat.svg");background-position:right;background-size:contain;}
+.bg-image-box-3{background-color:#1e1e1e;background-image:url("/assets/images/speaker.svg");}
+.bg-image-box-4{background-color:#2a2a2a;background-image:url("/assets/images/perfume.svg");}
 .bg-image-flex{display:flex;flex-direction:column;gap:6px 0;padding:25px;}
 .bg-image-flex :is(p,a){color:#fff;}
 .bg-image-flex p:first-child{font-weight:600;font-family:'Inter';font-size:1.1rem;}
 .bg-image-flex p:nth-child(2){font-size:.8rem;font-weight:400;}
 .bg-image-flex a{text-decoration:underline;font-weight:500;width:fit-content;}
+.bottom-icon-container{width:90%;margin:100px auto 50px;}
+.icon-bottom-flex{display:flex;justify-content:center;gap:0 50px;}
+.card-flex-bm{display:flex;align-items:center;flex-direction:column;gap:20px 0;}
+.bottom-card-icon{background-color:#c1c0c1;border-radius:50%;width:60px;height:60px;;display:flex;justify-content:center;align-items:center;}
+.bottom-card-icon span{background-color:#000;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
+.bottom-card-icon span i{color:#fff;font-size:1rem;}
+.bottom-card-note{display:flex;flex-direction:column;gap:0;align-items:center;}
+.bottom-card-note p{text-transform:uppercase;font-weight:600;}
+.bottom-card-note span{font-size:.8rem;color:#000;}
 
 
 @keyframes animatebtn {
@@ -147,4 +157,8 @@
     .container :is(.flashsale-header, .browse-category, .selling-product){margin-top:10px;}
     .container :is(.today-container, .category-head, .selling-head){gap:0 10px;}
     .add-to-cart-btn{display:block;opacity:1;}
+    .featured-flex{display:flex;flex-direction:column;}
+    .bg-image-box-1{background-size:contain;}
+    .bottom-icon-container{margin-top:60px;}
+    .icon-bottom-flex{flex-direction:column;gap:20px 0;}
 }

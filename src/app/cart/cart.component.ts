@@ -16,6 +16,7 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
   cartProducts: PRODUCTS[] = []
   noOfCart:number
   totalAmountOfCart:number
+  totalAmount:string
 
   ngOnDestroy(): void {
     this.appService.getProductCart().subscribe(products => {
@@ -35,6 +36,11 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
           i.price * i.quantity
         )
         .reduce((a, b) => a + b)
+
+        this.totalAmount = new Intl.NumberFormat("en-NG", {
+          style: "currency",
+          currency: "NGN"
+        }).format(this.totalAmountOfCart)
       }
     })
 
@@ -59,6 +65,11 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
         i.price * i.quantity
       )
       .reduce((a, b) => a + b)
+
+      this.totalAmount = new Intl.NumberFormat("en-NG", {
+        style: "currency",
+        currency: "NGN"
+      }).format(this.totalAmountOfCart)
     })
   }
 
@@ -75,6 +86,11 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
         i.price * i.quantity
       )
       .reduce((a, b) => a + b)
+
+      this.totalAmount = new Intl.NumberFormat("en-NG", {
+        style: "currency",
+        currency: "NGN"
+      }).format(this.totalAmountOfCart)
     })
   }
 
@@ -87,6 +103,11 @@ export class CartComponent implements OnInit, AfterViewInit, OnDestroy {
           i.price * i.quantity
         )
         .reduce((a, b) => a + b)
+
+        this.totalAmount = new Intl.NumberFormat("en-NG", {
+          style: "currency",
+          currency: "NGN"
+        }).format(this.totalAmountOfCart)
       }
     })
   }
