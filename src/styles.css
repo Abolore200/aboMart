@@ -4,3 +4,5 @@ body{font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida 
 body,html{font-family:'Poppins';scroll-behavior:smooth;}
 * a{text-decoration:none;}
 *{scroll-behavior:smooth;}
+input:not([type="radio"],[type="checkbox"]){-webkit-border-radius:0;border-radius:0;-webkit-appearance:none;appearance:none;}
+* button{color:#000;}

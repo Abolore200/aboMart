@@ -44,7 +44,7 @@
 .add-to-wishlist button i{font-size:1.5rem;color:#db4444;}
 .quantity-btn-container{display:none;align-items:center;}
 .quantity-btn-container :is(button,span){height:40px;display:flex;align-items:center;justify-content:center;}
-.quantity-btn-container button{padding:10px;border:1px solid #db4444;}
+.quantity-btn-container button{padding:10px;border:1px solid #db4444;cursor:pointer;}
 .quantity-btn-container button i{font-size:1rem;color:#db4444;}
 .quantity-btn-container span{padding:0 30px;font-size:1rem;font-weight:500;border:1px solid #db4444;border-width:1px 0 1px 0;width:80px;color:#db4444;}
 .quantity-btn-container button:first-child{border-radius:4px 0 0 4px;}
