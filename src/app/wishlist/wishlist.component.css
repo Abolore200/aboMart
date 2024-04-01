@@ -28,15 +28,14 @@
 .product-rating ul{display:flex;gap:0 5px;align-items:center;}
 .product-rating ul li{list-style:none;}
 .product-rating ul li i{color:#ffad33;font-size:1rem;}
-
 .product-image-card{position:relative;}
 .add-to-cart-btn{position:absolute;bottom:0;border:none;cursor:pointer;}
-
 .for-you-products-container :is(.product-head *){color:#db4444;}
 .for-you-products-container :is(.product-head){display:flex;align-items:center;gap:0 20px;}
 .for-you-products-container :is(.product-box){width:20px;height:40px;border-radius:4px;background-color:#db4444;}
 .for-you-products-container :is(.product-head span){font-weight:600;}
 .for-you-products-container{margin-top:50px;}
+.move-btn-header button.disabled{background-color:light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));border:none;color:light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));}
 
 @media screen and (max-width:768px) {
     .flashsale-products{gap:35px 10px;grid-template-columns:repeat(auto-fill,minmax(calc(250px / 2),1fr));}
