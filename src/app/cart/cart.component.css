@@ -60,7 +60,7 @@
     .cart-total-container{width:100%;}
     .sticky-cart-total{position:relative;}
     .cart-products-col{padding:5px 10px;gap:10px 0;}
-    .cart-description{flex-direction:column;gap:5px 0;align-items:normal;}
+    .cart-description{flex-direction:column;gap:10px 0;align-items:normal;}
     .cart-quantity{flex-direction:row-reverse;padding:0 15px 0 0;width:100%;}
     .cart-product{padding:10px 0;gap:0 15px;}
     .quantity-btn{justify-content:initial;}
@@ -70,4 +70,6 @@
     .cart-rating ul{gap:0 2px;}
     .cart-name-card{gap:1px 0;}
     .quantity-btn span{font-size:1rem;}
+    .empty-cart-container p i{font-size:3rem;}
+    .empty-cart-container p{font-size:2rem;}
 }
