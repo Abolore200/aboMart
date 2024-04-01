@@ -207,4 +207,9 @@ export class AppService {
   getLogin(value:boolean){
     this.loginEmit.emit(value)
   }
+
+  //wishlist length
+  wishLength(){
+    this.wishListEventEmit.emit(this.wishListCart)
+  }
 }

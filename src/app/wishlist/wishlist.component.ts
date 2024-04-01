@@ -58,4 +58,19 @@ export class WishlistComponent implements OnInit {
       this.appService.removeProductFromWishList(product,products)
     })
   }
+
+  moveWishlist(products: PRODUCTS[]){
+
+    //move wishlist to product cart
+    products.forEach(product => {
+      this.appService.addProductToCart(product)
+    })
+
+    //empty the wishlist array
+    products.length = 0
+    this.noOfWishlist = products.length
+
+    //emit wishlist length
+    this.appService.wishLength()
+  }
 }

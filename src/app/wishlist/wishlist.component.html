@@ -7,13 +7,10 @@
                 </p>
             </div>
             <div class="move-btn-header">
-                <button 
-                type="button" 
-                [disabled]="products.length === 0" 
-                [ngClass]="products.length === 0 ? 'disabled' : '' ">Move All To Bag</button>
+                <button type="button" [disabled]="products.length === 0" (click)="moveWishlist(products)">Move All To Bag</button>
             </div>
         </div>
-        <div *ngIf="noOfWishlist === 0" class="empty-wishlist-card">
+        <div *ngIf="products.length === 0" class="empty-wishlist-card">
             <p>Wishlist is Empty</p>
         </div>
         <div class="flashsale-product-container">
