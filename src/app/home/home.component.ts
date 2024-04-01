@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, QueryList, SimpleChanges, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { PRODUCTS } from '../AppModel/app.model';
-import { HeaderComponent } from '../header/header.component';
+import { Observable, TimeoutConfig, interval, map, shareReplay } from 'rxjs';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-home',

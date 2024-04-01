@@ -148,9 +148,10 @@
     .flashsale-header{align-items:start;gap:5px 0;}
     .container :is(.flashsale-header, .browse-category, .selling-product){margin-top:10px;}
     .container :is(.today-container, .category-head, .selling-head){gap:0 10px;}
-    .add-to-cart-btn{display:block;opacity:1;}
+    .add-to-cart-btn{opacity:1;transform:translateY(0);}
     .featured-flex{display:flex;flex-direction:column;}
     .bg-image-box-1{background-size:contain;}
     .bottom-icon-container{margin-top:60px;}
     .icon-bottom-flex{flex-direction:column;gap:20px 0;}
+    .quantity-btn-container button i{font-size:inherit;}
 }
