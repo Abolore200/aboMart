@@ -30,11 +30,13 @@
           <div class="menu-category" #removeNavBar [ngClass]="hideMenu ? 'absolute' : ''">
             <ul>
               <li><a (click)="hideNavBar()" [routerLinkActiveOptions]="{exact:true}" [routerLink]="''" [routerLinkActive]="'activeLink'">Home</a></li>
-              <li><a>Contact</a></li>
-              <li><a>About</a></li>
+              <li><a (click)="hideNavBar()">Contact</a></li>
+              <li><a (click)="hideNavBar()">About</a></li>
               <li><a (click)="hideNavBar()" [routerLink]="'signup'" [routerLinkActive]="'activeLink'">Sign Up</a></li>
+              <li><a (click)="hideNavBar()">Search</a></li>
             </ul>
-            <div class="menu-search">
+            <!-- disabled search input -->
+            <div class="menu-search" *ngIf="false"> 
               <input type="text" id="search" placeholder="What are you looking for?">
               <button>
                 <i class="fa-solid fa-magnifying-glass"></i>
