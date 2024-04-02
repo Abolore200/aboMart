@@ -32,7 +32,7 @@
 .menu-icon-header ul li{list-style:none;}
 .menu-icon-header ul li button i{font-size:2rem;color:#000;transition:all .5s ease-in-out;}
 .menu-icon-header ul li button span{position:absolute;width:20px;height:20px;display:flex;align-items:center;justify-content:center;background-color:#FB1314;}
-.menu-icon-header ul li button span{font-family:inherit;font-weight:600;border-radius:50%;right:100%;left:50%;top:0;}
+.menu-icon-header ul li button span{font-family:'Inter';font-weight:600;border-radius:50%;right:100%;left:50%;top:0;}
 .menu-icon-header ul li button{background-color:transparent;border:transparent;transition:all .5s ease-in-out;width:40px;height:40px;position:relative;}
 .menu-headers{display:flex;align-items:center;gap:0 100px;}
 .menu-logo button{display:none;}
