@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
+import { AuthService } from '../RouteGuard/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AppService } from '../AppService/app.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private appService: AppService){}
+  constructor(private appService: AppService, private auth: AuthService){}
 
   hide:boolean = false
   showPassword:boolean = false
@@ -60,6 +61,10 @@ export class LoginComponent implements OnInit {
 
   accountIcon:boolean = true
   loginAccount(){
+    //display profile icon when logged in
     this.appService.loginEmit.emit(this.accountIcon)
+
+    //authenticate login page and proceed to checkout page
+    this.auth.logIn()
   }
 }

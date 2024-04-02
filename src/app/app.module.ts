@@ -14,6 +14,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { ProductComponent } from './product/product.component';
+import { CanActivateService } from './RouteGuard/can-activate.service';
+import { AuthService } from './RouteGuard/auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ProductComponent } from './product/product.component';
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    CanActivateService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

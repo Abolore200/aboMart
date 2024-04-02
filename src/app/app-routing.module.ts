@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { CanActivateService } from './RouteGuard/can-activate.service';
 
 const routes: Routes = [
   // {path:'',redirectTo:'',pathMatch:'full'},
@@ -15,6 +17,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'wishlist',component:WishlistComponent},
   {path:'cart',component:CartComponent},
+  {path:'cart/checkout',component:CheckoutComponent, canActivate: [CanActivateService]},
   {path:'product/:id',component:ProductComponent}
 ];
 
