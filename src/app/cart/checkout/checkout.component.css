@@ -1,0 +1,40 @@
+.checkout-container{margin:70px 0;}
+.checkout-container-div{width:90%;margin:0 auto;}
+.checkout-header-name p span{color:#808080}
+.billing-details-head{margin:30px 0 0;}
+.billing-details-head p{font-size:1.8rem;font-family:'Inter';font-weight:500;}
+.form-checkout-div{margin:30px 0 0;}
+.form-checkout-flex{display:flex;gap:0 20px;}
+.checkout-form-container,.checkout-cart-container{width:100%;}
+.checkout-cart-container :is(.checkout-cart-flex,.total-checkout-container,.place-order-btn){width:70%;}
+.form{display:flex;flex-direction:column;width:100%;gap:20px 0;}
+.form .input-text{display:flex;flex-direction:column;gap:5px 0;}
+.form :is(.input-text label){font-size:.8rem;color:#999999;}
+.form :is(.input-text input){padding:10px 13px;border:none;background-color:#f5f5f5;width:80%;font-family:inherit;}
+.save-checkbox{display:flex;align-items:center;gap:0 10px;}
+.save-checkbox input[type="checkbox"]{background-color:#db4444;transition:all .5s ease-in-out;}
+.save-checkbox input[type="checkbox"]:checked{background-color:#db4444;transition:all .5s ease-in-out;}
+.save-checkbox label{font-size:.9rem;}
+.checkout-cart-flex{display:flex;flex-direction:column;gap:10px 0;}
+.product-div{display:flex;align-items:center;gap:0 30px;}
+.product-image{width:100px;height:100px;}
+.product-image img{width:100%;height:100%;}
+.product-description{width:100%;}
+.product-description{display:flex;align-items:center;justify-content:space-between;}
+.product-description p{font-family:'Inter';font-weight:500;}
+.product-description p:last-child{font-size:.8rem;}
+.total-checkout-container{margin:20px 0 0;display:flex;flex-direction:column;gap:7px 0;}
+.total-checkout-container .total-checkout{padding:10px 0;}
+.total-checkout-container .total-checkout{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #999999;}
+.total-checkout-container .total-checkout:last-child{border-bottom:none;}
+.total-checkout-container .total-checkout p:last-child{font-weight:500;font-family:'Raleway';}
+.place-order-btn{margin:40px 0 0;}
+.place-order-btn button{padding:15px 0;border:none;background-color:#db4444;border-radius:4px;width:100%;}
+.place-order-btn button{font-weight:500;font-family:'Inter';font-size:.9rem;color:#fff;}
+
+
+
+
+@media screen and (max-width:768px) {
+    .form :is(.input-text input){font-size:1rem;}
+}
