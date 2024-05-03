@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'wishlist',component:WishlistComponent},
   {path:'cart',component:CartComponent},
   // {path:'cart/checkout',component:CheckoutComponent},
-  {path:'cart/checkout',component:CheckoutComponent},
+  {path:'cart/checkout',component:CheckoutComponent, canActivate: [CanActivateService]},
   {path:'product/:id',component:ProductComponent}
 ];
 
@@ -27,6 +27,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-// , canActivate: [CanActivateService]
