@@ -1,6 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { AuthService } from '../RouteGuard/auth.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,61 +12,35 @@ import { AuthService } from '../RouteGuard/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private appService: AppService, private auth: AuthService){}
+  constructor(private appService: AppService, private auth: AuthService, private router: Router){}
 
   hide:boolean = false
-  showPassword:boolean = false
-
-  @ViewChild('password') Password:ElementRef
-  @ViewChild('blurName') BlurName:ElementRef
-  @ViewChild('blurEmail') BlurEmail:ElementRef
-  @ViewChild('blurPassword') BlurPassword:ElementRef
+  toggleEye:boolean = false
 
   loginimg:string
   ngOnInit(): void {
     this.loginimg = this.appService.signupImage
   }
-  showPass(){
-    if(this.showPassword === false){
-      this.showPassword = true
-      this.Password.nativeElement.type = "text"
+  showPass(password: HTMLInputElement){
+    if(this.toggleEye === false){
+      this.toggleEye = true
+      password.type = "text"
     } else {
-      this.showPassword = false
-      this.Password.nativeElement.type = "password"
+      this.toggleEye = false
+      password.type = "password"
     }
   }
 
-  //
-  nameInput:string = ''
-  emailInput:string = ''
-  passwordInput:string = ''
 
-  formBlurName(){
-    if(this.nameInput == ''){
-      this.BlurName.nativeElement.style.borderBottomColor = 'red'
-    }
-  }
-
-  //
-  formBlurEmail(){
-    if(this.emailInput == ''){
-      this.BlurEmail.nativeElement.style.borderBottomColor = 'red'
-    }
-  }
-
-  //
-  formBlurPassword(){
-    if(this.passwordInput == ''){
-      this.BlurPassword.nativeElement.style.borderBottomColor = 'red'
-    }
-  }
 
   accountIcon:boolean = true
-  loginAccount(){
+  loginAccount(form: NgForm){
     //display profile icon when logged in
     this.appService.loginEmit.emit(this.accountIcon)
 
     //authenticate login page and proceed to checkout page
     this.auth.logIn()
+
+    this.router.navigate([''])
   }
 }

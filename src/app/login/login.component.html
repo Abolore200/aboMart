@@ -11,21 +11,7 @@
                 <span>Enter your details below</span>
             </div>
             <div class="login-form">
-                <div class="form">
-                    <div class="form-input" hidden>
-                        <label for="name">
-                            <input
-                            id="name"
-                            autocomplete="off" 
-                            type="text" 
-                            placeholder="Name" 
-                            name="name" 
-                            #blurName
-                            (blur)="formBlurName()"
-                            [(ngModel)]="nameInput" 
-                            [ngStyle]="{borderBottomColor: nameInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
-                        </label>
-                    </div>
+                <form (ngSubmit)="loginAccount(form)" #form="ngForm" class="form">
                     <div class="form-input">
                         <label for="email">
                             <input
@@ -34,46 +20,47 @@
                             type="text" 
                             placeholder="Email or Phone Number" 
                             name="email"
-                            #blurEmail
-                            (blur)="formBlurEmail()"
-                            [(ngModel)]="emailInput" 
-                            [ngStyle]="{borderBottomColor: emailInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                            required
+                            email
+                            #email="ngModel"
+                            ngModel
+                            [ngStyle]="{borderBottomColor: email.valid ? '#28a745' : ''}">
                         </label>
+                        <span *ngIf="!email.valid && email.touched" class="error">Incorrect email</span>
                     </div>
                     <div class="form-input">
                         <label for="password">
                             <span>
                                 <i 
-                                (click)="showPass()" 
-                                [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                                (click)="showPass(showPassword)" 
+                                [ngClass]="toggleEye ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
                             </span>
                             <input 
                             id="password"
                             type="password" 
-                            #password 
+                            #showPassword 
                             placeholder="Password" 
                             name="password"
-                            #blurPassword
-                            (blur)="formBlurPassword()"
-                            [(ngModel)]="passwordInput" 
-                            [ngStyle]="{borderBottomColor: passwordInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                            required
+                            #password="ngModel"
+                            ngModel
+                            [ngStyle]="{borderBottomColor: password.valid ? '#28a745' : ''}">
                         </label>
                     </div>
                     <div class="form-input">
                         <div class="submit-btn">
                             <button 
-                            [routerLink]="'/home'"
-                            (click)="loginAccount()"
-                            type="submit" 
-                            [ngStyle]="{backgroundColor: passwordInput == '' ||  emailInput == '' ? '#ed8e86' : '#EA4335'}"
-                            [disabled]="passwordInput == '' || emailInput == ''">Login</button>
+                            (click)="form.valid"
+                            type="submit">
+                                Login
+                            </button>
                             <button>Forgot Password?</button>
                         </div>
                     </div>
                     <div class="form-input login">
-                        <p>Already have an account? &nbsp; <span class="login-link"><a [routerLink]="'/signup'">Signup</a></span></p>
+                        <p>Don't have an account? &nbsp; <span class="login-link"><a [routerLink]="'/signup'">Signup</a></span></p>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
