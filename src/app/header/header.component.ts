@@ -81,4 +81,13 @@ export class HeaderComponent implements OnInit {
       this.display.emit(this.hideMenu)
     }
   }
+
+  showProfile:boolean = false
+  displayProlifeDropdown(){
+    if(this.showProfile === false){
+      this.showProfile = true
+    } else {
+      this.showProfile = false
+    }
+  }
 }

@@ -13,7 +13,7 @@
 .form :is(.input-text input){padding:10px 13px;border:none;background-color:#f5f5f5;width:80%;font-family:inherit;}
 .save-checkbox{display:flex;align-items:center;gap:0 10px;}
 .save-checkbox input[type="checkbox"]{background-color:#db4444;transition:all .5s ease-in-out;}
-.save-checkbox input[type="checkbox"]:checked{background-color:#db4444;transition:all .5s ease-in-out;}
+/* .save-checkbox input[type="checkbox"]:checked{background-color:#db4444;transition:all .5s ease-in-out;} */
 .save-checkbox label{font-size:.9rem;}
 .checkout-cart-flex{display:flex;flex-direction:column;gap:10px 0;}
 .product-div{display:flex;align-items:center;gap:0 30px;}
@@ -21,8 +21,8 @@
 .product-image img{width:100%;height:100%;}
 .product-description{width:100%;}
 .product-description{display:flex;align-items:center;justify-content:space-between;}
-.product-description p{font-family:'Inter';font-weight:500;}
-.product-description p:last-child{font-size:.8rem;}
+.product-description .product-name{font-family:'Inter';font-weight:500;}
+/* .product-description{font-size:.8rem;} */
 .total-checkout-container{margin:20px 0 0;display:flex;flex-direction:column;gap:7px 0;}
 .total-checkout-container .total-checkout{padding:10px 0;}
 .total-checkout-container .total-checkout{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #999999;}
@@ -34,9 +34,31 @@
 .bank-delivery-container{margin:30px 0 0;display:flex;flex-direction:column;gap:10px 0;}
 .bank-delivery-container .bank-delivery,.bank-radio{display:flex;align-items:center;gap:0 10px;}
 .bank-delivery-container .bank{justify-content:space-between;}
-/* .bank-image */
+.product-price-div-card{display:flex;flex-direction:column;align-items:flex-end;}
+.product-price-div-card span{color:#808080;font-size:.85rem;}
+.product-price-div-card p{font-size:1.2rem;font-weight:600;}
 
+/* form error validation */
+.form :is(.input-text input[type="text"].ng-invalid.ng-touched,.input-text input[type="email"].ng-invalid.ng-touched){border:1px solid #dc3545;}
+.required-error{color:#dc3545;font-size:.8rem;margin:-3px 0 0;}
 
+/* bank or cash on delievery */
+.bank-delivery label{display:flex;align-items:center;gap:0 10px;}
+.bank-delivery label input[type="radio"]:checked + span{color:#db4444;}
+.bank-delivery label input[type="radio"]:checked + span::before{background-color:#db4444;content:"\2713";}
+.bank-delivery label span{color:#000;}
+.bank-delivery label input[type="radio"]{display:none;}
+.bank-delivery label span{display:flex;align-items:center;gap:0 10px;transition:all .2s ease-in-out;}
+/* checkbox sty;ling */
+.bank-delivery label span::before{content:"";display:block;width:15px;font-size:calc(1rem - 7px);display:flex;align-items:center;justify-content:center;height:15px;background-color:#000;border-radius:4px;color:#fff;font-weight:600;transition:all .2s ease-in-out;}
+
+/* save information */
+.save-checkbox label{display:flex;align-items:center;gap:0 10px;}
+.save-checkbox label input[type="checkbox"]{display:none;}
+.save-checkbox label input[type="checkbox"]:checked + span::before{background-color:#db4444;content:"\2713";}
+.save-checkbox label input[type="checkbox"]:checked + span{color:#db4444;}
+.save-checkbox label span{display:flex;align-items:center;gap:0 10px;color:#000;transition:all .2s ease-in-out;}
+.save-checkbox label span::before{content:"";display:block;width:15px;font-size:calc(1rem - 7px);display:flex;align-items:center;justify-content:center;height:15px;background-color:#000;border-radius:4px;color:#fff;font-weight:600;transition:all .2s ease-in-out;}
 
 
 @media screen and (max-width:768px) {

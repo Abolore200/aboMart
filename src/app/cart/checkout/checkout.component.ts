@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../../AppService/app.service';
 import { PRODUCTS } from '../../AppModel/app.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -34,5 +35,9 @@ export class CheckoutComponent implements OnInit {
         }).format(this.total)
       }
     })
+  }
+
+  placeOrder(form: NgForm){
+    
   }
 }
