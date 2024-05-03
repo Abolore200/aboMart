@@ -8,8 +8,8 @@
 .signup-head p{font-size:2rem;font-family:'Inter';padding-bottom:10px;}
 .signup-form{width:100%;margin:20px auto 0;}
 .form .form-input{margin-bottom:15px;}
-.form .form-input label input{width:100%;padding:10px 0px;border:none;border-bottom:1px solid rgb(0, 0, 0,.4);font-family:inherit;transition:all .5s ease-in-out;}
-.form .form-input label input:focus{border-color:#030406;}
+.form .form-input label input{width:100%;padding:10px 0px;border:none;border-bottom:1px solid rgb(0, 0, 0,.4);font-family:inherit;transition:all .2s ease-in-out;}
+/* .form .form-input label input:focus{border-color:#030406;} */
 .form .form-input:nth-child(3){margin-bottom:40px;}
 .form .form-input:nth-child(3) :is(label, input){position:relative;}
 .form .form-input:nth-child(3) label span{position:absolute;z-index:1;top:0;right:0px;}
@@ -22,6 +22,9 @@
 .login-link{text-decoration:underline;}
 .signup-head span, .login-link a{color:#030406;}
 .login-link a{text-decoration:underline #030406;}
+.form .form-input label input.ng-invalid.ng-touched{border-bottom-color:#dc3545;}
+
+.error{color:#dc3545;font-size:.8rem;margin:-3px 0 0;}
 
 
 @media screen and (max-width:768px) {

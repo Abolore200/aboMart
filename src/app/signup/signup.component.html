@@ -11,57 +11,61 @@
                 <span>Enter your details below</span>
             </div>
             <div class="signup-form">
-                <div class="form">
+                <form class="form" (ngSubmit)="formSubmit(form)" #form="ngForm">
                     <div class="form-input">
                         <label for="name">
                             <input
+                            name="name"
                             autocomplete="off" 
                             type="text" 
                             placeholder="Name" 
                             id="name" 
-                            #blurName
-                            (blur)="formBlurName()"
-                            [(ngModel)]="nameInput" 
-                            [ngStyle]="{borderBottomColor: nameInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                            required
+                            #name="ngModel"
+                            ngModel
+                            [ngStyle]="{borderBottomColor: name.valid ? '#28a745' : ''}">
                         </label>
+                        <span *ngIf="name.invalid && name.touched" class="error">This field is required</span>
                     </div>
                     <div class="form-input">
                         <label for="email">
                             <input
+                            name="email"
                             autocomplete="off" 
                             type="text" 
                             placeholder="Email or Phone Number" 
                             id="email"
-                            #blurEmail
-                            (blur)="formBlurEmail()"
-                            [(ngModel)]="emailInput" 
-                            [ngStyle]="{borderBottomColor: emailInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                            required
+                            email
+                            #email="ngModel"
+                            ngModel
+                            [ngStyle]="{borderBottomColor: email.valid ? '#28a745' : ''}">
                         </label>
+                        <span  *ngIf="!email.valid && email.touched" class="error">Incorrect email</span>
                     </div>
                     <div class="form-input">
                         <label for="password">
                             <span>
                                 <i 
-                                (click)="showPass()" 
+                                (click)="showPass(showPassoword)" 
                                 [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
                             </span>
                             <input 
+                            #showPassoword
+                            name="password"
                             type="password" 
-                            #password 
                             placeholder="Password" 
                             id="password"
-                            #blurPassword
-                            (blur)="formBlurPassword()"
-                            [(ngModel)]="passwordInput" 
-                            [ngStyle]="{borderBottomColor: passwordInput != '' ? 'green' : 'rgb(0, 0, 0,.4)'}">
+                            required
+                            #passowrd="ngModel"
+                            ngModel
+                            [ngStyle]="{borderBottomColor: passowrd.valid ? '#28a745' : ''}">
                         </label>
+                        <span  *ngIf="passowrd.invalid && passowrd.touched" class="error">This field is required</span>
                     </div>
                     <div class="form-input">
-                        <div class="submit-btn">
-                            <button 
-                            type="submit" 
-                            [ngStyle]="{backgroundColor: passwordInput == '' ||  emailInput == '' || nameInput == '' ? '#ed8e86' : '#EA4335'}"
-                            [disabled]="passwordInput == '' || emailInput == '' || nameInput == ''">Create Account</button>
+                        <div class="submit-btn" (click)="form.valid">
+                            <button type="submit">Create Account</button>
                         </div>
                     </div>
                     <div class="form-input">
@@ -74,8 +78,10 @@
                     <div class="form-input login">
                         <p>Already have an account? &nbsp; <span class="login-link"><a [routerLink]="'/login'">Login</a></span></p>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- [ngStyle]="{backgroundColor: passwordInput == '' ||  emailInput == '' || nameInput == '' ? '#ed8e86' : '#EA4335'}" -->

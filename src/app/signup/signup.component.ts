@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
 import { HeaderComponent } from '../header/header.component';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,12 +12,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private appService: AppService){}
-
-  @ViewChild('password') Password:ElementRef
-  @ViewChild('blurName') BlurName:ElementRef
-  @ViewChild('blurEmail') BlurEmail:ElementRef
-  @ViewChild('blurPassword') BlurPassword:ElementRef
+  constructor(private appService: AppService, private router: Router){}
 
   signupimg:string
   ngOnInit(): void {
@@ -25,40 +22,19 @@ export class SignupComponent implements OnInit {
   hide:boolean = false
   showPassword:boolean = false
 
-  showPass(){
+  showPass(password: HTMLInputElement){
+    console.log(password)
     if(this.showPassword === false){
       this.showPassword = true
-      this.Password.nativeElement.type = "text"
+      password.type = "text"
     } else {
       this.showPassword = false
-      this.Password.nativeElement.type = "password"
+      password.type = "password"
     }
   }
 
-  //
-  nameInput:string = ''
-  emailInput:string = ''
-  passwordInput:string = ''
-
-  formBlurName(){
-    if(this.nameInput == ''){
-      this.BlurName.nativeElement.style.borderBottomColor = 'red'
-    }
+  formSubmit(form: NgForm){
+    this.router.navigate([''])
   }
-
-  //
-  formBlurEmail(){
-    if(this.emailInput == ''){
-      this.BlurEmail.nativeElement.style.borderBottomColor = 'red'
-    }
-  }
-
-  //
-  formBlurPassword(){
-    if(this.passwordInput == ''){
-      this.BlurPassword.nativeElement.style.borderBottomColor = 'red'
-    }
-  }
-
   
 }
