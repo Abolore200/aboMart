@@ -102,7 +102,7 @@
                             </button>
                         </div>
                         <div class="product-description" [routerLink]="['/product/', product.id]">
-                            <div class="product-name"><p>{{product.name}}</p></div>
+                            <div class="product-name"><p>{{product.name.length <= 20 ? product.name : product.name.substring(0,20) + '...' }}</p></div>
                             <div class="product-price">
                                 <p>&#x20A6;{{product.price}}</p>
                                 <p>&#x20A6;{{product.old}}</p>

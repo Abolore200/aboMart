@@ -45,8 +45,8 @@
                             #password="ngModel"
                             ngModel
                             [ngStyle]="{borderBottomColor: password.valid ? '#28a745' : ''}">
-                            <span *ngIf="password.valid && password.touched" class="error">This field is required</span>
                         </label>
+                        <span *ngIf="password.invalid && password.touched" class="error">This field is required</span>
                     </div>
                     <div class="form-input">
                         <div class="submit-btn">
