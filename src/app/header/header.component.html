@@ -33,7 +33,7 @@
               <li><a (click)="hideNavBar()">Search</a></li>
               <li><a (click)="hideNavBar()">Contact</a></li>
               <li><a (click)="hideNavBar()">About</a></li>
-              <li><a (click)="hideNavBar()" [routerLink]="'signup'" [routerLinkActive]="'activeLink'">Sign Up</a></li>
+              <li><a (click)="hideNavBar()" [routerLink]="'signup'" [routerLinkActive]="'activeLink'" *ngIf="hideSignUp">Sign Up</a></li>
             </ul>
             <!-- disabled search input -->
             <div class="menu-search" *ngIf="false"> 
@@ -62,36 +62,36 @@
                   <!-- <span  *ngIf="cartNumber > 0">{{cartNumber}}</span> -->
                   <i class="fa-solid fa-user"></i>
                 </button>
-                <div class="profile-dropdown-div" *ngIf="showProfile">
+                <div class="profile-dropdown-div" *ngIf="showDropdown">
                   <div class="profile-ul">
                     <ul>
                       <li>
                         <button class="drop-profile pro-click">
-                          <i class="fa-solid fa-user"></i>
+                          <div class="profile_icon_dp"><i class="fa-solid fa-user"></i></div>
                           <span>Manage My Account</span>
                         </button>
                       </li>
                       <li>
                         <button class="drop-profile pro-click">
-                          <i class="fa-solid fa-bag-shopping"></i>
+                          <div class="profile_icon_dp"><i class="fa-solid fa-bag-shopping"></i></div>
                           <span>My Order</span>
                         </button>
                       </li>
                       <li>
                         <button class="drop-profile pro-click">
-                          <i class="fa-solid fa-ban"></i>
+                          <div class="profile_icon_dp"><i class="fa-solid fa-ban"></i></div>
                           <span>My Cancellations</span>
                         </button>
                       </li>
                       <li>
                         <button class="drop-profile pro-click">
-                          <i class="fa-regular fa-star"></i>
+                          <div class="profile_icon_dp"><i class="fa-regular fa-star"></i></div>
                           <span>My Reviews</span>
                         </button>
                       </li>
                       <li>
-                        <button class="drop-profile pro-click">
-                          <i class="fa-solid fa-right-from-bracket"></i>
+                        <button class="drop-profile pro-click" (click)="logOut()">
+                          <div class="profile_icon_dp"><i class="fa-solid fa-right-from-bracket"></i></div>
                           <span>Logout</span>
                         </button>
                       </li>

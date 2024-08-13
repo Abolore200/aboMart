@@ -1,5 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../AppService/app.service';
+import { AuthService } from '../RouteGuard/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,7 @@ import { AppService } from '../AppService/app.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private appService: AppService){}
+  constructor(private appService: AppService, private auth: AuthService, private router: Router){}
   @ViewChild('removeNavBar') removeNavBar: ElementRef
 
   languages:string[] = []
@@ -18,6 +20,7 @@ export class HeaderComponent implements OnInit {
   cartNumber: number
   productName:string | boolean
   displayAccount:boolean
+  hideSignUp:boolean = true
 
   ngOnInit(): void {
     this.languages = this.appService.languages
@@ -46,6 +49,12 @@ export class HeaderComponent implements OnInit {
     // DISPLAY ACCOUNT ICON WHEN TRUE
     this.appService.loginEmit.subscribe(login => {
       this.displayAccount = login
+      console.log(login)
+      if(login === true){
+        this.hideSignUp = false
+      } else {
+        this.hideSignUp = true
+      }
     })
   }
 
@@ -82,12 +91,30 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  showProfile:boolean = false
+  showDropdown:boolean = false
   displayProlifeDropdown(){
-    if(this.showProfile === false){
-      this.showProfile = true
+    if(this.showDropdown === false){
+      this.showDropdown = true
     } else {
-      this.showProfile = false
+      this.showDropdown = false
+    }
+  }
+
+  logOut(){
+    this.auth.logOut()
+
+    //hide profile icon && hide dropdown
+    this.displayAccount = false 
+    this.showDropdown = false 
+
+    //hide menu dropdown
+    this.hideMenu = false
+
+    //display sign up
+    this.hideSignUp = true
+
+    if(window.location.pathname == '/cart/checkout'){
+      this.router.navigate([''])
     }
   }
 }

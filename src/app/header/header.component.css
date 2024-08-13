@@ -38,13 +38,14 @@
 .menu-logo button{display:none;}
 .profile-dropdown-container{position:relative;}
 .profile-dropdown-div{position:absolute;left:-270px;right:0;padding:20px 15px;background-color:rgba(0,0,0,.5);border-radius:5px;min-width:300px;z-index:1;}
-.profile-ul ul{display:flex;flex-direction:column;gap:15px 0;}
+.profile-ul ul{display:flex;flex-direction:column;gap:15px 0!important;}
 .profile-ul ul li{list-style:none;}
-.pro-click{display:flex;align-items:center;gap:0 15px;background-color:transparent;border:none;width:100%;font-family:inherit;width:100%;}
+.pro-click{display:flex;align-items:center;gap:0 15px;background-color:transparent;border:none;font-family:inherit;width:100%;}
 .pro-click :is(span,i){color:#fff;}
 .pro-click i{font-size:1.5rem;}
 .pro-click span{font-size:.9rem;font-weight:400;font-family:inherit;}
-
+/* .profile_icon_dp{width:20px;height:20px;}
+.profile_icon_dp i{width:100%;height:100%;} */
 
 
 @media screen and (min-width:1024px) {
