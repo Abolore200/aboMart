@@ -18,6 +18,9 @@ import { CanActivateService } from './RouteGuard/can-activate.service';
 import { AuthService } from './RouteGuard/auth.service';
 import { HttpService } from './AppService/http.service';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+// import Aura from '@primeuix/themes/aura';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,12 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
     provideHttpClient(),
     CanActivateService,
     AuthService,
+    provideAnimationsAsync(),
+    // providePrimeNG({
+    //     theme: {
+    //         preset: Aura
+    //     }
+    // })
     // HttpService,
   ],
   bootstrap: [AppComponent]
