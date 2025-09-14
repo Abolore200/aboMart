@@ -3,6 +3,7 @@ import { AppService } from '../AppService/app.service';
 import { AuthService } from '../RouteGuard/auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from '../AppService/http.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private appService: AppService, private auth: AuthService, private router: Router){}
+  constructor(private appService: AppService, private auth: AuthService, private router: Router, private httpSrv: HttpService){}
 
   hide:boolean = false
   toggleEye:boolean = false
@@ -35,12 +36,32 @@ export class LoginComponent implements OnInit {
 
   accountIcon:boolean = true
   loginAccount(form: NgForm){
-    //display profile icon when logged in
-    this.appService.loginEmit.emit(this.accountIcon)
+    const payload = {
+      UserName: String(form.value.phonenumber),
+      UserPassword: form.value.password,
+    }
 
-    //authenticate login page and proceed to checkout page
-    this.auth.logIn()
+    this.httpSrv.login(payload).subscribe({
+      next: (res) => {
+        if(res.result){
+          // sotre data to local storage
+          localStorage.setItem('userData', JSON.stringify(res.data));
+          //display profile icon when logged in
+          this.appService.loginEmit.emit(this.accountIcon);
+          //authenticate login page and proceed to checkout page
+          this.auth.logIn()
+          this.router.navigate([''])
+        } else {
+          alert(res.message);
+        }
 
-    this.router.navigate([''])
+      },
+      error: (error) => {
+        console.log(error)
+        alert(error?.error?.UserName[0] ?? error?.error?.UserPassword[0] ?? 'An error occurred');
+      }
+    })
+
+
   }
 }

@@ -16,6 +16,8 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { ProductComponent } from './product/product.component';
 import { CanActivateService } from './RouteGuard/can-activate.service';
 import { AuthService } from './RouteGuard/auth.service';
+import { HttpService } from './AppService/http.service';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,10 @@ import { AuthService } from './RouteGuard/auth.service';
   ],
   providers: [
     provideClientHydration(),
+    provideHttpClient(),
     CanActivateService,
-    AuthService
+    AuthService,
+    // HttpService,
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,8 @@ import { AppService } from '../AppService/app.service';
 import { HeaderComponent } from '../header/header.component';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from '../AppService/http.service';
+import { RegisterCustomerPayload } from '../AppService/models/register.model';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private appService: AppService, private router: Router){}
+  constructor(private appService: AppService, private router: Router, private httpSrv: HttpService){}
 
   signupimg:string
   ngOnInit(): void {
@@ -34,7 +36,24 @@ export class SignupComponent implements OnInit {
   }
 
   formSubmit(form: NgForm){
-    this.router.navigate([''])
+    const payload: RegisterCustomerPayload = {
+      CustId: 0,
+      Password: form.value['password'],
+      Name: form.value['name'],
+      MobileNo: form.value['phonenumber'],
+    }
+
+    this.httpSrv.registerCustomer(payload).subscribe({
+      next: (res) => {
+        if(res.result){
+          this.router.navigate([''])
+        }
+        alert(res.message);
+      }, 
+      error: (error) => {
+        alert(error);
+      }
+    })
   }
   
 }

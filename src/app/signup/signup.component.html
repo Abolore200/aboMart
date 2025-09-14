@@ -28,20 +28,19 @@
                         <span *ngIf="name.invalid && name.touched" class="error">This field is required</span>
                     </div>
                     <div class="form-input">
-                        <label for="email">
+                        <label for="phonenumber">
                             <input
-                            name="email"
+                            name="phonenumber"
                             autocomplete="off" 
                             type="text" 
-                            placeholder="Email or Phone Number" 
-                            id="email"
+                            placeholder="Phone Number" 
+                            id="phonenumber"
                             required
-                            email
-                            #email="ngModel"
+                            #phonenumber="ngModel"
                             ngModel
-                            [ngStyle]="{borderBottomColor: email.valid ? '#28a745' : ''}">
+                            [ngStyle]="{borderBottomColor: phonenumber.valid ? '#28a745' : ''}">
                         </label>
-                        <span  *ngIf="!email.valid && email.touched" class="error">Incorrect email</span>
+                        <span  *ngIf="!phonenumber.valid && phonenumber.touched" class="error">Phone Number is required</span>
                     </div>
                     <div class="form-input">
                         <label for="password">
@@ -68,13 +67,13 @@
                             <button type="submit">Create Account</button>
                         </div>
                     </div>
-                    <div class="form-input">
+                    <!-- <div class="form-input">
                         <div class="submit-btn">
                             <button type="button">
                                 <i class="fa-brands fa-google"></i> &nbsp; Sign up with Google
                             </button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-input login">
                         <p>Already have an account? &nbsp; <span class="login-link"><a [routerLink]="'/login'">Login</a></span></p>
                     </div>
